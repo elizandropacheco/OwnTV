@@ -1,0 +1,9 @@
+OwnTV is a customizable Android TV and Google TV home with an open composition, large app logos, stable remote focus and gradient borders.
+
+Organize favorites and categories; customize cards, images, HDMI shortcuts, wallpapers and the clock. Browse shared TV recommendations four at a time, read rotating topic headlines, view compatible RTSP cameras, and optionally enable SSH/SFTP as the app user.
+
+No launcher advertising or analytics. News and optional wallpaper downloads contact their documented public sources. Camera connections use the network addresses configured on the TV. The optional SSH server accepts local network connections while enabled.
+
+Source, installation steps, compatibility limits and privacy details: https://github.com/elizandropacheco/OwnTV
+
+Based on Couchy Launcher by Conreo under GPLv3.

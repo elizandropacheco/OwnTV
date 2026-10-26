@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.LiteTV" parent="android:Theme.Material.NoActionBar.Fullscreen">
+        <!-- Splash: drawn by the system the instant the app starts -->
+        <item name="android:windowBackground">@drawable/own_blank</item>
+        <item name="android:colorAccent">#0084FE</item>
+        <item name="android:colorBackground">@android:color/black</item>
+    </style>
+<style name="Theme.LiteTV.OwnTV" parent="Theme.LiteTV"><item name="android:windowBackground">@drawable/own_blank</item></style><style name="Theme.LiteTV.Custom" parent="Theme.LiteTV"><item name="android:windowBackground">@drawable/own_blank</item></style></resources>

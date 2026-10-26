@@ -1,0 +1,1 @@
+OwnTV 0.2.1: open home composition, configurable favorites order, stable focus, four-card recommendations, YouTube priority, topic headlines, three-column settings, refined camera controls and default fill, original wallpapers and optional SSH/SFTP.

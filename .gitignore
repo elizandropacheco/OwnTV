@@ -1,0 +1,69 @@
+# Build
+*.iml
+.gradle/
+.kotlin/
+build/
+app/build/
+/local.properties
+/captures
+.externalNativeBuild
+.cxx
+
+# IDE
+.idea/
+*.hprof
+.claude/
+
+# OS
+.DS_Store
+
+# Keystores / secrets
+*.jks
+*.keystore
+debug.keystore
+
+# Misc
+/tmp/
+
+# Session transcripts / exports
+pi-session-*.html
+*.session.html
+.env
+.dsx/
+
+# Private per-device data (never publish)
+private/
+*.plbackup
+*.enc
+*credentials*
+*secrets*
+*-local.json
+local-*.json
+!docs/examples/cameras.example.json
+
+# Original photos are fetched from their credited sources; optional game art is local.
+app/src/main/assets/ep/wallpapers/*.jpg
+app/src/main/assets/ep/cards/fortnite*.jpg
+
+*.pem
+*.p12
+*.pfx
+camera-import.json
+ssh-hostkey.*
+
+# Release binaries are hosted as GitHub Release assets, not Git blobs.
+/releases/**/*.apk
+/releases/**/lint-results*
+
+# Private editable brand masters must never be published.
+/art/owntv/
+/app/src/main/assets/ep/logo.png
+*.psd
+*.ai
+*.xcf
+*.cdr
+
+# Local tooling caches
+.tools/
+__pycache__/
+*.py[cod]

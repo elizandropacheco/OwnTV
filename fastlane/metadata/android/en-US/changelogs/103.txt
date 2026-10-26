@@ -1,0 +1,1 @@
+OwnTV 0.2.2: original vector monogram and animated startup, direct menu-to-favorites navigation, Home key interception when supported, real YouTube recommendations with fair per-publisher limits, thumbnail metadata and complete installation documentation.

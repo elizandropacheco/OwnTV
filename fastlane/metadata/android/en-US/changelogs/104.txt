@@ -1,0 +1,1 @@
+Release build tooling, source layout documentation and versioned release metadata. Editable brand masters removed from public distribution; rendered logos and startup animation preserved. IoT/Alexa feasibility study added (proposal only).
