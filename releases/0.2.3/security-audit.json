@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "reviewDate": "2026-10-25",
+  "sourceCommit": "6534064165a1edfad6e352294c047fab9e591f11",
+  "apkSha256": "d6269bc2a998460b3003907c6c045585bc941d27bccfc32e522fa5ac12355bad",
+  "gitleaksVersion": "8.30.1",
+  "checks": {
+    "publicSourceAndHistory": "passed",
+    "apkContentAndStrings": "passed",
+    "privateCameraConfigurationFound": false,
+    "privateCredentialsFound": false,
+    "editablePersonalLogosFound": false,
+    "renderedLogoCount": 4,
+    "bundledWallpapersWithoutCaptureMetadata": 15,
+    "androidBuildAndLint": "passed",
+    "releaseSignature": "passed",
+    "sshAccessPolicyTests": "passed",
+    "imagePrivacyTests": "passed",
+    "deviceUpdatePreservedData": "passed",
+    "deviceSshCommand": "passed",
+    "deviceSftpReadWriteDelete": "passed",
+    "deviceInvalidSshPasswordRejected": "passed",
+    "deviceHomeAndNativeSettingsOpened": "passed"
+  },
+  "dependencies": {
+    "runtime": {
+      "modules": 121,
+      "affected": []
+    },
+    "build": {
+      "modules": 149,
+      "affected": []
+    },
+    "lint": {
+      "modules": 67,
+      "affected": []
+    }
+  },
+  "limitations": [
+    "No guarantee of absence of unknown vulnerabilities; not an independent penetration test.",
+    "RTSP transport is not encrypted by the HTTP policy.",
+    "Authenticated SSH runs as the application user and can access application data.",
+    "Network address filtering does not replace a firewall or prevent source masking by NAT.",
+    "Historical Git provider caches and copies downloaded by third parties cannot be erased by a branch rewrite.",
+    "The full UI/camera video test sequence was not repeated because the owner was actively using the TV.",
+    "IoT/Alexa is a study, not an implemented feature."
+  ]
+}
