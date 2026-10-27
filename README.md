@@ -31,7 +31,7 @@ A identidade EP usa fundo `#030B12`, azul `#0084FE`, verde `#2CEB43`, linhas geo
 
 Validado em uma TCL com Android TV 14. Os atalhos específicos da TCL dependem do firmware e da entrada HDMI. O OwnTV é um launcher Android: a implementação LG/webOS é separada e não faz parte deste APK.
 
-**LG/webOS:** há um [piloto separado 0.1.1](webos/README.md), com Home no estilo Android, fundos, menus, personalização e atalhos. Não possui todas as funções Android nem substitui a Home LG. Consulte [conta LG Developer, correção de país, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md). O acesso de desenvolvedor foi verificado em seis LG 43LM631C0SB; o piloto foi instalado e teve interface e navegação verificadas nas seis unidades. Root e SSH permanente permanecem não validados. Navegador e abertura de URLs estão fora do escopo. As seis usam relógio automático no fuso de São Paulo e SSH restrito com shell; usuário SSH extra não foi criado por falta de privilégios. Confira [horário, acesso e versão do sistema](docs/LG-WEBOS.pt-BR.md#relógio-acesso-e-versão-do-sistema--conferência-de-27102026).
+**LG/webOS:** a [versão experimental 0.2.0](webos/README.md) acrescenta notícias por temas, sugestões públicas do YouTube com quatro cards por página e câmeras por uma ponte privada, além da Home, fundos, favoritos e entradas no estilo Android. As câmeras exigem um computador/servidor ligado; veja [como configurar](webos/bridge/README.md). Não substitui a Home LG nem reproduz todas as integrações Android. Consulte [conta LG Developer, correção de país, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md) e o [registro dos testes nas seis unidades](docs/VALIDATION.md). Root, usuário SSH extra e SSH permanente não estão implementados. Navegador e abertura de URLs permanecem fora do escopo.
 
 Os arquivos dos wallpapers mantêm a resolução original. A resolução da interface é determinada pelo Android e pode ser inferior à resolução física do painel. O launcher adapta a decodificação à interface para evitar consumo desnecessário de memória.
 
@@ -104,7 +104,7 @@ As artes opcionais de jogos são personalização local. O código público incl
 
 ## Câmeras e DVR
 
-Abra **Câmeras → Opções do DVR → Configurar** e informe host, usuário, senha, porta e quantidade de canais. A implementação nativa usa RTSP no formato Dahua/Intelbras compatível com `cam/realmonitor`.
+No **Android**, abra **Câmeras → Opções do DVR → Configurar** e informe host, usuário, senha, porta e quantidade de canais. A implementação nativa usa RTSP no formato Dahua/Intelbras compatível com `cam/realmonitor`.
 
 - O mosaico é rolável e mantém no máximo quatro prévias ativas.
 - **OK** abre o fluxo principal, mostrando a resolução recebida.
@@ -117,6 +117,8 @@ Mibo, iSIC e iCSee também têm atalhos para seus próprios aplicativos. A integ
 RTSP tradicional não oferece criptografia de transporte: use uma rede local confiável e não exponha o DVR na internet.
 
 As credenciais do DVR ficam criptografadas com AES-GCM e Android Keystore no armazenamento privado da TV. Não entram nas configurações públicas do projeto nem no catálogo de imagens. Este repositório não contém endereços ou acessos de instalações reais.
+
+No **webOS**, use [a ponte de câmeras](webos/bridge/README.md). As credenciais do gravador ficam no servidor privado; a TV recebe somente uma chave própria da ponte.
 
 ## SSH e SFTP
 
@@ -144,6 +146,7 @@ O relógio pode acompanhar o fuso do sistema ou usar um identificador IANA. Sinc
 O código-fonte está disponível diretamente neste repositório, organizado por responsabilidades, sem depender de um pacote ZIP. Veja o [mapa do projeto](docs/PROJECT_STRUCTURE.md), o [guia completo de build e assinatura](docs/BUILDING.md) e o [guia de contribuição](CONTRIBUTING.md).
 
 - `app/`: aplicativo Android, componentes nativos, interface e recursos.
+- `webos/`: aplicativo LG, serviço de conteúdo, ponte privada de câmeras e testes.
 - `scripts/`: build, validação dos arquivos públicos e download de wallpapers.
 - `releases/`: índice das versões, hashes e metadados; o build gera o APK nessa mesma pasta localmente.
 - `docs/`: instalação, arquitetura, validação e [estudo de IoT e Alexa](docs/IOT-ALEXA.md).

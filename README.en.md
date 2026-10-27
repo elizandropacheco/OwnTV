@@ -33,7 +33,7 @@ Advertising inside streaming services remains controlled by those apps. YouTube 
 
 Tested on TCL Android TV 14. LG/webOS has a separate experimental implementation; this APK remains Android-only.
 
-See the [LG Developer account, country selection, Developer Mode, SSH and hardware guide](docs/LG-WEBOS.pt-BR.md) (Portuguese). Developer SSH was verified on six LG 43LM631C0SB units on 2026-10-27 (firmware 05.40.97, SDK 4.10.0). A [webOS 0.1.1 pilot](webos/README.md) provides an Android-inspired home, wallpapers, preferences and shortcuts, installed and checked on all six TVs. It does not have Android feature parity. Root, persistent SSH and Home replacement remain unverified. Browser and URL features are out of scope.
+See the [LG Developer account, country selection, Developer Mode, SSH and hardware guide](docs/LG-WEBOS.pt-BR.md) (Portuguese). Developer SSH was verified on six LG 43LM631C0SB units on 2026-10-27 (firmware 05.40.97, SDK 4.10.0). The [webOS 0.2.0 experimental app](webos/README.md) adds topic-based news, four public YouTube suggestions per page and cameras through a private external bridge, alongside the Android-inspired home, wallpapers, preferences and HDMI shortcuts. Camera access requires an always-available computer/server; see the [bridge guide](webos/bridge/README.md). It does not have Android feature parity. Root, persistent SSH and Home replacement remain unverified. Browser and URL features are out of scope.
 
 Use JDK 21, Android SDK 34 and Build Tools 35.0.0:
 

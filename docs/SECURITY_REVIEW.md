@@ -47,3 +47,15 @@ SSH autenticado executa como o usuário Android do OwnTV e consegue acessar arqu
 RTSP tradicional continua sem TLS. Criptografar as credenciais armazenadas não criptografa o vídeo na rede. O OwnTV não expõe um servidor de câmera nem publica a configuração do DVR; use uma rede confiável e permissões adequadas no próprio DVR.
 
 A consulta de dependências não cobre o firmware da TV, bibliotecas nativas do sistema, todos os comportamentos de fornecedores ou vulnerabilidades ainda não divulgadas. O modelo de CI incluído em `docs/ci/` está inativo; não foi alegada aprovação de CI remota. IoT/Alexa permanece uma proposta documentada e não adiciona serviços de rede nesta versão.
+
+## webOS 0.2.0 — conteúdo e ponte privada
+
+O IPK contém apenas código, recursos públicos e um serviço de conteúdo. O verificador rejeita `webos/service/private-data/` mesmo quando ignorado pelo Git. A release foi conferida também depois da extração do IPK, com busca pelos valores privados da instalação e por padrões de segredos; não são publicados esses valores nem imagens reais das câmeras.
+
+O serviço aceita consultas de notícias, vídeos e configuração da ponte somente do identificador OwnTV. RSS é obtido por HTTPS com validação de certificado, origens fixas, limite de tamanho/tempo, temas/canais limitados e cache limitado a 64 entradas. Textos são renderizados com `textContent`; não são executados HTML ou scripts recebidos de feeds.
+
+A ponte exige token aleatório e IP permitido. Rotas fechadas não aceitam caminhos de arquivos ou URLs arbitrárias. A configuração do gravador fica em arquivo privado com permissão 0600 fora do checkout. A ponte não registra URLs, pois elas incluem tokens, e seus segmentos HLS temporários são removidos. O serviço da TV grava somente endereço e token da ponte em arquivo 0600. Desinstalar/limpar dados pode remover essa configuração.
+
+HTTP/RTSP locais não fornecem sigilo contra observadores da rede. Use rede confiável ou VPN/HTTPS administrados; não exponha a ponte diretamente à internet. Um token válido autoriza todas as câmeras dessa ponte. Código aberto, revisão e testes não constituem garantia absoluta de ausência de vulnerabilidades.
+
+Esta revisão da árvore e da release atual não remove objetos antigos sem referência que ainda estejam acessíveis por hash no provedor Git. A eliminação desses objetos é uma pendência separada da política de não incluir originais nas novas entregas.

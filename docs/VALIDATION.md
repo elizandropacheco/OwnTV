@@ -34,4 +34,23 @@ Na revisão de segurança da 0.2.3, Kotlin/R8/Lint foram atualizados e as depend
 
 Android 0.2.4 acrescenta Entradas ao rodapé, reutilizando o seletor de `TvInputManager`. Compilação release, lint, manifesto e assinatura são registrados em `releases/0.2.4/build-info.json`. Esta revisão Android não foi instalada na TCL durante a rodada no escritório; a validação física anterior de Home se refere à versão anterior.
 
-Para LG, consulte o [registro das seis unidades](../releases/webos/0.1.1/README.md). Cada revisão do piloto deve ser conferida em todas as TVs participantes e terminar com a Home aberta para comparação visual.
+Para LG, consulte o [registro das seis unidades](../releases/webos/0.1.1/README.md). Cada revisão do piloto deve ser conferida em todas as TVs participantes. Naquela rodada as TVs terminaram na Home para comparação visual.
+
+## LG webOS 0.2.0 — 27/10/2026
+
+Rodada nas seis LG 43LM631C0SB, com o mesmo IPK. O registro público resumido está em [validation.json](../releases/webos/0.2.0/validation.json); evidências com rede e câmeras permanecem privadas.
+
+- **27 verificações de interface por TV**: notícias reais, quatro sugestões, paginação, metadados, foco menu/favoritos/câmeras/jogos, configurações em três colunas, campos de conteúdo, chave mascarada, entradas, Sobre e limites de tela. Passaram nas seis.
+- Atualização por cima preservou endereço/chave da ponte nas seis, sem recadastrar o gravador no aplicativo. O pacote de distribuição não inclui esses valores.
+- Notícias por RSS com TLS validado e sugestões públicas dos canais configurados carregaram nas seis. A ação dos cards foi acionada para solicitar abertura no YouTube; a API de inspeção do aplicativo em primeiro plano foi negada. Não se apresenta isso como comprovação automática do vídeo exato reproduzido pelo YouTube.
+- Câmeras: principal 1920×1080 e modo leve normalizado 960×540, pausa/retomada, controle de áudio, troca de enquadramento, retorno ao foco e renovação das prévias. O modo leve não ganha detalhe pelo aumento de resolução de sua fonte.
+- O usuário confirmou o desaparecimento da tela preta após separar/recarregar a camada de vídeo, e depois confirmou que as câmeras não estavam mais achatadas. A composição final foi alterada para três colunas, seis prévias por página, a pedido dele.
+- Os canais configurados foram percorridos. Alguns não retornaram snapshot na rodada e receberam indicação de indisponibilidade; isso não confirma que todos os canais correspondam a câmeras fisicamente online. As seis prévias iniciais retornaram nas seis TVs.
+- Uma interrupção silenciosa observada em um fluxo motivou limites de espera RTSP, detecção de playlist parada, sequências HLS renovadas e reconexão limitada no player. Isso não elimina falhas de rede ou da fonte.
+- Os testes encerram com uma câmera diferente em cada TV, conforme o pedido de teste, em vez da Home usada na rodada anterior.
+
+Verificações locais: parsing ES5 de todos os fontes próprios do app/serviço, testes de preferências, parsers RSS/Atom, URL policy, isolamento por aplicativo chamador, permissões privadas e rotas HTTP. O IPK extraído e os arquivos publicáveis são verificados contra os dados privados da instalação e por Gitleaks. A CI em `docs/ci/` continua sendo um modelo, sem execução remota alegada.
+
+A ponte manual permaneceu necessária nesta instalação: o LaunchAgent iniciou, mas o macOS recusou seu acesso de saída à rede local. Foi desativado; a ponte foi mantida no processo autorizado. Inicialização automática após login/reinício **não passou**. A execução depende do Mac ligado, conectado e sem suspensão; o guia descreve instalação em servidor alternativo.
+
+Não houve nova instalação física da versão Android durante esta rodada. Esta validação não elimina a pendência separada de remoção de objetos antigos de Git acessíveis por hash.

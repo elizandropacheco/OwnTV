@@ -61,4 +61,4 @@ Não são distribuídos originais editáveis de logos, chaves, backups nem confi
 
 ## LG webOS — entrega separada
 
-O [piloto 0.1.1](webos/0.1.1/README.md) usa IPK, não APK. Código em `webos/app/`, script `scripts/build-webos.sh` e saída em `releases/webos/<versão>/`. O IPK é anexado à [pré-release webos-v0.1.1](https://github.com/elizandropacheco/OwnTV/releases/tag/webos-v0.1.1), acompanhado de SHA256SUMS e build-info.json. A versão Android permanece a release principal.
+A [versão experimental 0.2.0](webos/0.2.0/README.md) usa IPK, não APK. Código em `webos/app/`, `webos/service/` e `webos/bridge/`, script `scripts/build-webos.sh` e saída em `releases/webos/<versão>/`. O IPK é anexado à [pré-release webos-v0.2.0](https://github.com/elizandropacheco/OwnTV/releases/tag/webos-v0.2.0), acompanhado de SHA256SUMS e build-info.json. A versão Android permanece a release principal.

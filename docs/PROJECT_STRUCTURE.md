@@ -71,3 +71,13 @@ Fotografias grandes e artes opcionais locais ficam fora do Git, com catálogos/c
 ## Piloto LG webOS
 
 `webos/app/` contém a implementação inicial para LG, independente do módulo Android. `scripts/prepare-webos-assets.py` prepara fotos Full HD e `scripts/build-webos.sh` gera o IPK em `releases/webos/<versão>/`. Veja [limites e instalação](../webos/README.md). O módulo Android e sua versão não mudam com uma entrega experimental webOS.
+
+## Conteúdo e câmeras LG 0.2.0
+
+- `webos/app/content-ui.js`: notícias, sugestões, paginação e preferências de fontes.
+- `webos/app/cameras.js`: mosaico JPEG e player HLS, foco e ciclo de vida.
+- `webos/service/`: serviço Luna/Node ES5; RSS por HTTPS, cache limitado e configuração privada da ponte. Métodos de conteúdo e credenciais aceitam somente o app OwnTV.
+- `webos/bridge/`: servidor Python/FFmpeg, autenticação por token e IP e instalador opcional de LaunchAgent macOS.
+- `webos/tests/`: modelos de preferências, parsers RSS e limites de acesso HTTP.
+
+Dados reais de câmeras, tokens e chaves não fazem parte desses diretórios. A configuração da ponte fica fora do checkout; `config.example.json` contém somente exemplos substituíveis.

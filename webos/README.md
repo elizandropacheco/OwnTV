@@ -1,80 +1,75 @@
-# OwnTV para LG webOS — piloto 0.1.1
+# OwnTV para LG webOS — 0.2.0 experimental
 
-Implementação inicial em HTML, CSS e JavaScript compatível com o motor Chromium 53 das LG de referência. Reaproveita a identidade visual e os recursos renderizados do Android; não executa o APK nem contém todas as funcionalidades Android.
+Implementação separada do Android, com interface HTML/CSS/JavaScript para o Chromium 53 e serviço JavaScript compatível com Node 0.12.2 das LG de referência. O APK Android não roda em webOS.
 
-## Disponível neste piloto
+![Home OwnTV webOS com notícias e sugestões](../docs/screenshots/webos-home.png)
 
-- Home aberta com o slogan, menu Início/Filmes/Música/Jogos/Casa/Todos os apps e dois cards laterais, seguindo a composição Android.
-- Logo EP por padrão, monograma OwnTV opcional e abertura animada.
-- Quinze fotografias da coleção Android, preparadas para Full HD, com créditos e licenças; escolha de fundo, cinco níveis de escurecimento e alternância ativada por padrão a cada um minuto enquanto o app está visível; pode ser desligada nas configurações.
-- Favoritos com ícones coloridos por padrão ou monocromáticos, ordem configurável e persistência local.
-- Configurações em três colunas e página Sobre sem rolagem horizontal.
-- Superfícies translúcidas com bordas em gradiente separadas do preenchimento; o foco não movimenta nem amplia o card.
-- Botão Entradas no rodapé e nos favoritos abre quatro opções: HDMI 1, HDMI 2, HDMI 3 e Central de entradas LG.
-- Atalhos YouTube, TV ao vivo, entradas e HDMI 1–3; a disponibilidade depende dos apps/entradas da TV.
-- Navegação: ↓ no menu vai ao primeiro favorito; ↑ nos favoritos vai a Câmeras, depois Jogos e menu. Os controles permanecem no lugar ao receber foco.
+## Recursos
 
-## Limites explícitos
+- Home aberta, identidade EP/OwnTV configurável, abertura animada, transparência e contornos em gradiente. Foco sem ampliar ou deslocar cards.
+- Quinze fundos da coleção Android em Full HD, alternância inicial de um minuto e escurecimento configurável.
+- Favoritos coloridos por padrão, opção monocromática e ordem persistente.
+- Notícias reais em duas linhas abaixo do slogan, alternando a cada 12 segundos; página de notícias com fonte, tema, data e paginação. Temas iniciais: telecom, tecnologia e inteligência artificial. Configuração aceita até oito temas e permite desligar o recurso.
+- Sugestões do YouTube: quatro cards completos por página, miniatura, título, canal e data, na Home e na página Sugeridos. Os canais públicos são configuráveis. Os padrões incluem Elizandro Pacheco, Canaltech, TecMundo e OpenAI.
+- Câmeras: seis prévias por página em três colunas, navegação entre canais, vídeo principal ampliado, modo leve, pausa, áudio, preenchimento/ajuste e reconexão. Requer a [ponte privada](bridge/README.md) em um computador/servidor ligado.
+- Configurações em três colunas, com controles próprios para notícias, canais e conexão das câmeras.
+- Entradas HDMI 1–3 e Central de entradas LG; atalhos para YouTube e TV ao vivo.
 
-- Este é um aplicativo aberto pelo menu LG. Não substitui Home, não inicia automaticamente ao ligar a TV e não fornece root/SSH permanente.
-- A lista de apps é a seleção de atalhos do piloto, não um inventário de aplicativos instalados. O modo desenvolvedor negou as APIs de inventário geral nos testes.
-- Os menus Música e Casa informam o estado da integração. O card Câmeras ainda não reproduz vídeo. Não foram importadas configurações reais de câmeras.
-- Notícias, sugestões de conteúdo, descoberta de apps, imagens personalizadas, download diário de fundos e servidor SSH próprio ainda não foram portados.
-- Navegador, URL inicial, abertura automática de sites e tela cheia de páginas foram retirados do escopo a pedido do usuário. O navegador LG não renderizou corretamente o site moderno testado; o projeto não instala Chrome.
+## Usar pelo controle
 
-## Compilar
+**↓ no menu superior** vai ao primeiro favorito. **↑ nos favoritos** vai a Câmeras, depois Jogos e menu. **↓ nos favoritos** vai à sugestão da mesma coluna. As setas nas sugestões avançam/voltam a página. Voltar fecha o vídeo e restaura a câmera selecionada; outro Voltar retorna à Home. O player usa uma camada própria, fora da transformação de escala da interface, para funcionar com a saída de vídeo das LG.
 
-Instale Node.js/npm e a [CLI oficial LG](https://webostv.developer.lge.com/develop/tools/cli-installation). Para gerar os derivados das fotos, instale Pillow em um ambiente Python próprio. Exemplo para macOS/Linux:
+Em **Configurações → Notícias e temas**, edite temas separados por vírgula. Em **Sugestões do YouTube**, informe IDs públicos de canais (`UC…`, 24 caracteres), separados por vírgulas. Não informe URLs de login, cookies ou senhas. Os campos aceitam o teclado virtual da TV.
+
+RSS é atualizado com cache de 30 minutos e cópia local para indisponibilidade temporária. A interface identifica conteúdo em cache ou falha de atualização; não inventa notícias. Notícias são manchetes, não artigos completos. Consultas dos temas são enviadas ao Google Notícias; IDs públicos são enviados ao YouTube. Miniaturas vêm do YouTube.
+
+As sugestões são vídeos públicos dos canais escolhidos, **não** recomendações pessoais, histórico ou inscrições da conta. O RSS não fornece duração; o app não inventa esse dado. Abrir um card solicita o vídeo ao aplicativo YouTube instalado, cujo comportamento depende da versão. Outros serviços não fornecem aqui o provedor de conteúdo do Android TV.
+
+## Instalar e atualizar
+
+Primeiro siga o [guia de conta LG, país, Developer Mode, chaves e conexão](../docs/LG-WEBOS.pt-BR.md). Baixe o IPK da [release webos-v0.2.0](https://github.com/elizandropacheco/OwnTV/releases/tag/webos-v0.2.0), confira SHA256SUMS e instale:
+
+```sh
+ares-install --device lg-piloto io.elizandropacheco.owntv.webos_0.2.0_all.ipk
+ares-launch --device lg-piloto io.elizandropacheco.owntv.webos
+```
+
+Repita com o nome cadastrado de cada TV. Atualize por cima, sem desinstalar ou limpar os dados. O IPK inclui app e serviço de conteúdo. As câmeras são configuradas separadamente e nenhum acesso real acompanha o pacote. Mantenha Developer Mode ativo e acompanhe sua validade; desativação/expiração pode remover apps de desenvolvimento.
+
+## Compilar a partir do código
+
+Requisitos: Node.js compatível com a CLI oficial LG, npm, Python 3 e Pillow para preparar os fundos.
 
 ```sh
 npm install -g @webos-tools/cli
-python3 -m venv .tools/webos-assets
-.tools/webos-assets/bin/pip install Pillow
+npm ci --prefix webos
+python3 -m pip install Pillow
 python3 scripts/fetch-wallpapers.py --count 15
-.tools/webos-assets/bin/python scripts/prepare-webos-assets.py
+python3 scripts/prepare-webos-assets.py
 ./scripts/build-webos.sh
 ```
 
-O preparador usa as fotos do catálogo Android, mantém a proporção, limita as dimensões a 1920×1080 e remove metadados de captura. Os JPEGs são gerados localmente, não versionados. O pacote contém as fotos e os créditos. A opção `--source /pasta/das/fotos` aceita uma coleção previamente baixada pelos scripts do projeto. Caso a CLI não esteja no PATH, defina `OWNTV_ARES_PACKAGE` com o caminho de `ares-package`.
+Para uma CLI instalada em outro caminho, use `OWNTV_ARES_PACKAGE=/caminho/ares-package`. O build executa verificações de arquivos públicos, sintaxe e testes de dados/preferências, empacota `webos/app/` e `webos/service/` e grava IPK, SHA256SUMS e build-info em `releases/webos/0.2.0/`. O binário é distribuído pela GitHub Release; o fonte permanece navegável, sem ZIP obrigatório.
 
-Saída: `releases/webos/0.1.1/`, com IPK, SHA-256 e metadados. O APK Android é compilado separadamente; a versão 0.2.4 também acrescenta Entradas ao rodapé da Home.
-
-## Instalar, testar e remover
-
-Primeiro siga [conta LG, Developer Mode e chave SSH](../docs/LG-WEBOS.pt-BR.md). Cadastre uma TV-piloto na CLI com nome `lg-piloto`:
+Verificações adicionais:
 
 ```sh
-ares-install --device lg-piloto releases/webos/0.1.1/io.elizandropacheco.owntv.webos_0.1.1_all.ipk
-ares-launch --device lg-piloto io.elizandropacheco.owntv.webos
-ares-inspect --device lg-piloto io.elizandropacheco.owntv.webos
+npm test --prefix webos
+node webos/tests/content.test.cjs
+node webos/tests/model.test.cjs
+python3 webos/tests/bridge_test.py
+python3 scripts/check-public-assets.py
 ```
 
-A sequência é a via oficial de distribuição. Na instalação de referência foi usado SFTP e o serviço público de instalação do modo desenvolvedor. Consulte o [registro de validação](../releases/webos/0.1.1/README.md) para distinguir instalação, renderização e testes funcionais.
+## Limites atuais
 
-Para sair, pressione Home no controle. Para remover apenas o piloto:
+- App aberto pelo menu LG. Não substitui Home, não inicia automaticamente ao ligar a TV e não fornece root/SSH permanente.
+- SSH Developer Mode continua sendo `prisoner`, com prazo e permissões LG. Não foi criado usuário de sistema adicional.
+- Lista de apps contém os atalhos conhecidos, não um inventário geral: as APIs de inventário foram negadas nesse firmware. Música não integra catálogo próprio; jogos usam atalhos HDMI.
+- Câmeras dependem de servidor externo. As prévias são JPEGs atualizados a cada três segundos; não são seis vídeos simultâneos. Um vídeo ao vivo por TV, com atraso HLS. Veja [instalação, privacidade e limites da ponte](bridge/README.md).
+- Navegador/URL inicial ficaram fora do escopo. Imagens personalizadas, download diário de fundos, integrações IoT/Alexa e funções exclusivas TCL não foram portados.
+- Testado em seis LG 43LM631C0SB, firmware 05.40.97, SDK 4.10.0. Não é homologação para todos os modelos LG.
 
-```sh
-ares-install --device lg-piloto --remove io.elizandropacheco.owntv.webos
-```
+Veja [validação e ressalvas](../docs/VALIDATION.md), [histórico](../CHANGELOG.md) e [hardware](../docs/LG-WEBOS.pt-BR.md#5-hardware-verificado).
 
-Remover o app apaga suas preferências locais. Desativar ou deixar expirar Developer Mode também pode remover aplicativos de desenvolvimento. O launcher LG permanece instalado.
-
-## Estrutura e recursos
-
-- `app/`: pacote webOS, metadados, páginas, estilos e JavaScript ES5.
-- `app/model.js`: normalização e persistência das preferências.
-- `app/assets/wallpapers.json`: fontes, autores, licenças e transformação das fotos.
-- `app/vendor/`: webOSTV-dev.js 1.2.13, da LG, sob Apache-2.0; licença incluída. Origem: https://webostv.developer.lge.com/assets/library/webOSTVjs-1.2.13.zip.
-- `tests/model.test.cjs`: estado corrompido, padrões, ordenação, duplicatas e persistência.
-
-O código OwnTV segue a licença do projeto. Logos pessoais são somente derivados renderizados. Os símbolos YouTube e PlayStation vêm dos mesmos recursos Simple Icons da versão Android; marcas continuam pertencendo aos titulares. As fotografias preservam suas licenças, incluindo atribuição e compartilhamento pela mesma licença quando aplicável.
-
-No Chromium antigo, recursos `file:` precisam ser explicitamente permitidos pela política do pacote; `'self'` sozinho não carregou CSS/JS no aparelho. A política continua bloqueando rede, frames, objetos e execução de scripts remotos. Não remova a política para contornar problemas de carregamento.
-
-## Conferência em várias TVs
-
-Em cada revisão, instalar e abrir o mesmo pacote em todas as TVs participantes, sem limitar a validação a uma unidade. Aguardar a instalação concluir antes de abrir: uma solicitação de instalação aceita ainda pode estar em processamento.
-
-Em cada aparelho, conferir Home, carregamento das imagens, navegação do menu aos favoritos e de volta aos cards, Configurações, persistência das preferências e Entradas. Verificar os limites dos botões na tela, inclusive com foco. Testar as três HDMI e a central LG, depois retornar à Home do OwnTV para comparação visual. Registrar versão, checksum, verificações e falhas sem publicar IPs, chaves ou dados das câmeras.
-
-Os testes automatizados de navegação enviam eventos ao aplicativo real pelo depurador de desenvolvimento. Isso complementa, mas não substitui, a conferência com o controle físico. Um comando HDMI aceito pela TV não comprova sinal de um aparelho conectado.
+Desenvolvido por [Elizandro Pacheco](https://elizandropacheco.io/). [Siga no Instagram](https://www.instagram.com/elizandropacheco/), [inscreva-se no YouTube](https://www.youtube.com/@ElizandroPacheco) e [dê uma estrela no GitHub](https://github.com/elizandropacheco/OwnTV).

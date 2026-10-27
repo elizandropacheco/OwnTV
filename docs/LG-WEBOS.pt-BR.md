@@ -11,7 +11,7 @@ Atualizado em **27/10/2026**. Este guia prepara uma LG para desenvolvimento e re
 | Hardware e firmware | Consultados diretamente nos aparelhos; resumo abaixo |
 | Root e SSH persistente após expiração do modo dev | Não aplicados nem validados |
 | Substituição da Home LG | Não implementada nem validada |
-| OwnTV para webOS | Piloto 0.1.1 de interface, fundos e atalhos; veja o [registro de validação](../releases/webos/0.1.1/README.md). O APK Android não é instalável |
+| OwnTV para webOS | Versão experimental 0.2.0 com notícias, sugestões e câmeras; veja o [registro de validação](../releases/webos/0.2.0/README.md). O APK Android não é instalável |
 
 ## 1. Conta de desenvolvedor
 
@@ -135,3 +135,11 @@ Todas permitem SSH com shell BusyBox como `prisoner`, pela porta 9922 e chave in
 O firmware lido nas seis é **05.40.97**. A [página oficial LG de firmware desta família](https://www.lg.com/ar/soporte/producto/lg-43LM6300PSB.KWNYLWK), cuja lista inclui explicitamente 43LM631C0SB, oferece 05.40.97 com data de 07/07/2025. É a versão pública mais recente encontrada nessa página; não foi executada atualização de firmware nem confirmado um canal OTA diferente para cada unidade.
 
 Android no processador ARM seria tecnicamente concebível mediante port específico, mas não foi encontrada uma imagem Android para esta placa LG. Bootloader, kernel, drivers e HALs precisam corresponder ao hardware; root em webOS não fornece isso. Veja a [arquitetura AOSP](https://source.android.com/docs/core/architecture). Um equipamento Android externo por HDMI permite usar a versão Android do OwnTV sem trocar o sistema interno da TV.
+
+## Notícias, sugestões e câmeras — OwnTV 0.2.0
+
+O [guia webOS](../webos/README.md) descreve a instalação do app e serviço no mesmo IPK. Notícias vêm do RSS Google Notícias para os temas escolhidos; sugestões vêm dos canais públicos do YouTube configurados. Não acessam histórico, senhas ou recomendações pessoais da conta.
+
+Para câmeras, instale a [ponte privada no computador/servidor](../webos/bridge/README.md) e configure somente endereço e chave da ponte em cada TV. O gravador mantém seu usuário/senha no servidor; esses valores nunca devem entrar no IPK, exemplos, capturas ou Git. O mosaico mostra seis JPEGs atualizados por página e o player abre um HLS por TV. A [LG documenta HLS](https://webostv.developer.lge.com/develop/specifications/streaming-protocol-drm); o port não tenta executar a biblioteca RTSP Android no webOS.
+
+No macOS, o serviço automático pode precisar de autorização em **Ajustes do Sistema → Privacidade e Segurança → Rede Local**. O funcionamento iniciado pelo terminal não comprova que o LaunchAgent tem a mesma autorização. Confira a imagem real na TV, reinício do serviço e operação após login antes de depender da inicialização automática.

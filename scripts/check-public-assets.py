@@ -49,6 +49,9 @@ def check():
         failures.append('app/src/main/assets/ep/logo.png: ignored original still present')
     if (ROOT / 'art/owntv').exists() and any((ROOT / 'art/owntv').iterdir()):
         failures.append('art/owntv/: ignored masters still present')
+    private_service_data = ROOT / "webos/service/private-data"
+    if private_service_data.exists() and any(private_service_data.iterdir()):
+        failures.append("webos/service/private-data/: runtime credentials must never be packaged")
     if failures:
         print('Public asset check failed:\n' + '\n'.join(sorted(set(failures))), file=sys.stderr)
         return 1

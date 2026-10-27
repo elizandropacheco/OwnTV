@@ -73,3 +73,9 @@ __pycache__/
 
 # Full HD photographs are generated from the credited Android catalog.
 /webos/app/assets/wallpapers/*.jpg
+
+/webos/service/private-data/
+/webos/bridge/*private*.json
+
+webos/node_modules/
+**/__pycache__/

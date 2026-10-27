@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-27",
+  "version": "0.2.0",
+  "platform": "webOS",
+  "model": "LG 43LM631C0SB",
+  "firmware": "05.40.97",
+  "sdk": "4.10.0",
+  "devices": [
+    {
+      "unit": 1,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 12.04,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    },
+    {
+      "unit": 2,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 12.24,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    },
+    {
+      "unit": 3,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 12.237,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    },
+    {
+      "unit": 4,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 12.439,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    },
+    {
+      "unit": 5,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 12.444,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    },
+    {
+      "unit": 6,
+      "uiChecks": 27,
+      "uiPassed": 27,
+      "galleryCards": 6,
+      "galleryImagesLoaded": 6,
+      "galleryClearOfFooter": true,
+      "bridgeRetainedAfterUpdate": true,
+      "mainVideoSize": [
+        1920,
+        1080
+      ],
+      "videoSecondsAdvancedIn12Seconds": 10.81,
+      "videoError": null,
+      "pauseResumeControl": true,
+      "audioToggle": true,
+      "lightVideoSize": [
+        960,
+        540
+      ],
+      "backRestoredFocus": true
+    }
+  ],
+  "localChecks": [
+    "ES5 parser: app and service",
+    "preferences model",
+    "RSS/Atom parsers and URL bounds",
+    "service caller isolation and private permissions",
+    "bridge authentication, routing and stale-stream recovery",
+    "public asset guard",
+    "source and extracted IPK private-value scan",
+    "Gitleaks source, extracted IPK and reachable history"
+  ],
+  "limitations": [
+    "YouTube cards invoked from the six TVs; exact video playback was not independently confirmed.",
+    "Some configured camera sources did not return previews during the extended sweep.",
+    "HLS startup and reconnection can take 20–45 seconds.",
+    "macOS LaunchAgent network access was blocked; automatic startup is disabled and unvalidated. The authorized bridge process is required.",
+    "No Home replacement, root or permanent SSH."
+  ]
+}

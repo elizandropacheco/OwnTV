@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=1920, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'"
+      content="default-src 'self'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data: blob: https: http:; connect-src https: http:; media-src https: http: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'"
     />
     <title>OwnTV</title>
     <link rel="stylesheet" href="style.css" />
@@ -27,7 +27,8 @@
           ><button data-page="music">Música</button
           ><button data-page="games">Jogos</button
           ><button data-page="house">Casa</button
-          ><button data-page="apps">Todos os apps</button>
+          ><button data-page="news">Notícias</button
+          ><button data-page="apps">Apps</button>
         </nav>
         <div class="clock">
           <strong id="time"></strong><span id="date"></span>
@@ -38,10 +39,9 @@
           <section class="hero">
             <div class="eyebrow">ENTRETENIMENTO · JOGOS · CASA</div>
             <h1>Seu universo.<br />Do seu jeito.</h1>
-            <p>
-              Seus aplicativos e dispositivos.<br />Uma tela inicial com a sua
-              identidade.
-            </p>
+            <button class="headline-button" data-page="news">
+              <span id="headline"></span><small id="headline-source"></small>
+            </button>
           </section>
           <div class="feature-cards">
             <button id="games-card" class="feature game" data-action="console">
@@ -54,7 +54,7 @@
             ><button id="camera-card" class="feature cameras" data-page="house">
               <img class="camera-art" src="assets/cameras.png" alt="" /><span
                 ><strong>Câmeras</strong
-                ><small>Conheça o estado da integração</small></span
+                ><small>Suas câmeras · prévias e vídeo ao vivo</small></span
               >
             </button>
           </div>
@@ -65,6 +65,23 @@
             <span>← → escolher · OK abrir</span>
           </div>
           <div id="shortcuts" class="tiles"></div>
+        </section>
+        <section id="home-suggestions" class="suggestion-rail">
+          <div class="section-label">
+            <button class="rail-title" data-page="suggestions">
+              Sugeridos · YouTube
+            </button>
+            <div class="pager">
+              <button id="home-video-prev" aria-label="Sugestões anteriores">
+                ←</button
+              ><span id="home-video-page"></span
+              ><button id="home-video-next" aria-label="Próximas sugestões">
+                →
+              </button>
+            </div>
+          </div>
+          <div id="home-video-items" class="recommendations"></div>
+          <p id="home-video-status" class="empty-status"></p>
         </section>
       </main>
       <section id="category" class="page" hidden>
@@ -128,6 +145,22 @@
             ><strong>Sobre o OwnTV</strong
             ><small>Versão, créditos e suporte</small>
           </button>
+          <button data-page="news-settings">
+            <span class="setting-icon"
+              ><img src="assets/news.svg" alt="" /></span
+            ><strong>Notícias e temas</strong
+            ><small id="news-setting-value"></small></button
+          ><button data-page="video-settings">
+            <span class="setting-icon"
+              ><img src="assets/youtube.svg" alt="" /></span
+            ><strong>Sugestões de vídeos</strong
+            ><small id="video-setting-value"></small></button
+          ><button data-page="camera-settings">
+            <span class="setting-icon"
+              ><img src="assets/camera.svg" alt="" /></span
+            ><strong>Conexão das câmeras</strong
+            ><small>Ponte privada e acesso</small>
+          </button>
         </div>
         <div id="order-editor" class="notice" hidden>
           <h2>Organizar favoritos</h2>
@@ -152,13 +185,127 @@
               o projeto com uma estrela no GitHub.
             </p>
             <p class="muted">
-              webOS · piloto 0.1.1<br />Interface, fundos, personalização e
-              atalhos. Câmeras, notícias e sugestões ainda não estão
-              disponíveis. O botão Home continua abrindo a tela da LG.
+              webOS 0.2.0<br />Notícias por temas, vídeos públicos de canais
+              escolhidos e câmeras por ponte privada. O botão Home continua
+              abrindo a tela da LG.
             </p>
           </div>
         </div>
       </section>
+
+      <section id="news" class="page" hidden>
+        <div class="section-label">
+          <h1>Notícias</h1>
+          <div class="toolbar">
+            <button id="news-refresh">
+              <img src="assets/rotate.svg" alt="" />Atualizar</button
+            ><button id="news-config" data-page="news-settings">
+              <img src="assets/settings.svg" alt="" />Temas
+            </button>
+          </div>
+        </div>
+        <p id="news-status" class="intro"></p>
+        <div id="news-items" class="news-grid"></div>
+        <div class="page-pager">
+          <button id="news-prev" aria-label="Notícias anteriores">
+            ← Anteriores</button
+          ><span id="news-page"></span
+          ><button id="news-next" aria-label="Próximas notícias">
+            Próximas →
+          </button>
+        </div>
+      </section>
+      <section id="suggestions" class="page" hidden>
+        <div class="section-label">
+          <h1>Sugeridos · YouTube</h1>
+          <div class="toolbar">
+            <button id="video-refresh">
+              <img src="assets/rotate.svg" alt="" />Atualizar</button
+            ><button id="video-config" data-page="video-settings">
+              <img src="assets/settings.svg" alt="" />Configurar canais
+            </button>
+          </div>
+        </div>
+        <p id="video-status" class="intro"></p>
+        <div id="video-items" class="recommendations"></div>
+        <div class="page-pager">
+          <button id="video-prev" aria-label="Vídeos anteriores">
+            ← Anteriores</button
+          ><span id="video-page"></span
+          ><button id="video-next" aria-label="Próximos vídeos">
+            Próximos →
+          </button>
+        </div>
+      </section>
+      <section id="content-settings" class="page" hidden>
+        <div class="section-label">
+          <h1 id="content-settings-title"></h1>
+          <button data-page="settings">Voltar às configurações</button>
+        </div>
+        <div id="content-form"></div>
+        <p id="content-form-error" role="status"></p>
+      </section>
+      <section id="cameras-page" class="page" hidden>
+        <div class="section-label">
+          <h1>Câmeras</h1>
+          <div class="toolbar">
+            <button id="camera-refresh">
+              <img src="assets/rotate.svg" alt="" />Atualizar</button
+            ><button id="camera-config" data-page="camera-settings">
+              <img src="assets/settings.svg" alt="" />Configurar
+            </button>
+          </div>
+        </div>
+        <p id="camera-status" class="intro"></p>
+        <div id="camera-grid"></div>
+        <div class="page-pager">
+          <button id="camera-prev" aria-label="Câmeras anteriores">
+            ← Anteriores</button
+          ><span id="camera-pagination"></span
+          ><button id="camera-next" aria-label="Próximas câmeras">
+            Próximas →
+          </button>
+        </div>
+      </section>
+      <div id="news-detail" class="content-dialog" role="dialog" hidden>
+        <div>
+          <h2 id="news-detail-title"></h2>
+          <p id="news-detail-source"></p>
+          <p>
+            Manchete publicada pela fonte indicada. Para ler a reportagem
+            completa, consulte o veículo.
+          </p>
+          <button id="news-detail-close">Voltar às notícias</button>
+        </div>
+      </div>
+      <div id="camera-player" hidden>
+        <div class="live-heading">
+          <strong id="camera-live-title"></strong
+          ><span id="camera-live-status" role="status"></span>
+        </div>
+        <video id="camera-video" playsinline preload="none"></video>
+        <div class="live-controls">
+          <button id="camera-close">
+            <img src="assets/back.svg" alt="" /><span>Voltar</span></button
+          ><button id="camera-pause">
+            <img src="assets/play.svg" alt="" /><span>Pausar</span></button
+          ><button id="camera-audio">
+            <img src="assets/audio.svg" alt="" /><span
+              >Ativar áudio</span
+            ></button
+          ><button id="camera-quality">
+            <img src="assets/quality.svg" alt="" /><span
+              >Modo leve</span
+            ></button
+          ><button id="camera-fit">
+            <img src="assets/fit.svg" alt="" /><span
+              >Ajustar imagem</span
+            ></button
+          ><button id="camera-reconnect">
+            <img src="assets/rotate.svg" alt="" /><span>Reconectar</span>
+          </button>
+        </div>
+      </div>
       <footer>
         <span>OwnTV <small>· piloto LG</small></span
         ><button data-page="inputs">Entradas</button
@@ -175,6 +322,8 @@
     <script src="vendor/webOSTV-dev.js"></script>
     <script src="wallpapers.js"></script>
     <script src="model.js"></script>
+    <script src="cameras.js"></script>
+    <script src="content-ui.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

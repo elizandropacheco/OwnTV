@@ -1,0 +1,3 @@
+{
+  "overrides": [{"files": ["webos/app/**/*.js", "webos/service/**/*.js"], "options": {"trailingComma": "none"}}]
+}

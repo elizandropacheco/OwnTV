@@ -5,7 +5,13 @@ PACKAGER="${OWNTV_ARES_PACKAGE:-ares-package}"
 VERSION="$(node -p 'require(process.argv[1]).version' "$ROOT/webos/app/appinfo.json")"
 OUT="$ROOT/releases/webos/$VERSION"
 python3 "$ROOT/scripts/check-public-assets.py"
+node "$ROOT/webos/tests/es5.test.cjs"
 node --check "$ROOT/webos/app/app.js"
+node --check "$ROOT/webos/app/content-ui.js"
+node --check "$ROOT/webos/app/cameras.js"
+node --check "$ROOT/webos/service/service.js"
+node "$ROOT/webos/tests/content.test.cjs"
+node "$ROOT/webos/tests/service.test.cjs"
 node "$ROOT/webos/tests/model.test.cjs"
 python3 - "$ROOT" <<'VERIFY'
 import json,sys
@@ -16,7 +22,7 @@ if len(photos)!=15 or any(not (app/p['file']).is_file() for p in photos):
     raise SystemExit('Prepare the 15 webOS wallpapers before building.')
 VERIFY
 mkdir -p "$OUT"
-"$PACKAGER" "$ROOT/webos/app" --outdir "$OUT"
+"$PACKAGER" "$ROOT/webos/app" "$ROOT/webos/service" --outdir "$OUT"
 python3 - "$ROOT" "$OUT" <<'PY'
 import hashlib,json,sys
 from pathlib import Path

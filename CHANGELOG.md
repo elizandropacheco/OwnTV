@@ -1,5 +1,16 @@
 # Alterações
 
+## webOS 0.2.0 — 27/10/2026 (experimental)
+
+- Notícias RSS por temas com manchetes rotativas, fonte, data, paginação e cache.
+- Sugestões públicas de canais YouTube configuráveis: quatro cards, metadados compactos e abertura no app YouTube.
+- Câmeras com ponte privada autenticada, seis prévias JPEG por página, vídeo HLS principal/leve e controles próprios.
+- Player fora da transformação da interface, evitando vídeo preto na saída nativa LG; gradientes ajustados à altura dos cards.
+- Configurações de conteúdo em três colunas, navegação entre favoritos e sugestões e tratamento de indisponibilidade.
+- Serviço ES5 incluído no IPK, limites de rede/cache, testes de parsers e autorização da ponte, guias de instalação e privacidade.
+- Android permanece na versão 0.2.4. Home LG, root e SSH permanente não fazem parte desta versão.
+
+
 ## 0.2.4 Android / 0.1.1 webOS — 2026-10-27
 
 - Android: botão Entradas no rodapé abre o seletor existente da TV.

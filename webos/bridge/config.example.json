@@ -1,0 +1,16 @@
+{
+  "bind": "192.168.1.10",
+  "port": 8788,
+  "allowed_clients": ["192.168.1.20"],
+  "tokens": ["REPLACE_WITH_A_RANDOM_TOKEN_FOR_EACH_TV"],
+  "ffmpeg": "ffmpeg",
+  "recorder": {
+    "host": "192.168.1.30",
+    "user": "YOUR_CAMERA_USER",
+    "password": "YOUR_CAMERA_PASSWORD",
+    "port": 554,
+    "http_port": 80,
+    "channels": 16,
+    "transcode": false
+  }
+}

@@ -28,7 +28,7 @@
       apply();
     } catch (e) {
       toast(
-        "Não foi possível salvar. Suas escolhas anteriores foram mantidas.",
+        "Não foi possível salvar. Suas escolhas anteriores foram mantidas."
       );
     }
   }
@@ -54,6 +54,10 @@
     each(document.querySelectorAll("nav button"), function (b) {
       b.classList.toggle("selected", b.getAttribute("data-page") === next);
     });
+    var contentHandled = window.OwnTVContent && window.OwnTVContent.show(next);
+    if (contentHandled) {
+      return;
+    }
     if (next === "home") {
       el("home").hidden = false;
       firstTile();
@@ -103,7 +107,7 @@
       "Leve",
       "Equilibrado",
       "Escuro",
-      "Muito escuro",
+      "Muito escuro"
     ][state.dim];
     el("rotate-value").textContent = state.rotate
       ? "A cada 1 minuto"
@@ -165,7 +169,7 @@
     }
     if (!window.PalmServiceBridge && !window.WebOSServiceBridge) {
       toast(
-        "Este atalho abre " + name + " quando o OwnTV está instalado na LG.",
+        "Este atalho abre " + name + " quando o OwnTV está instalado na LG."
       );
       return;
     }
@@ -177,9 +181,9 @@
         toast(
           "Não foi possível abrir " +
             name +
-            ". Confira se o aplicativo está disponível nesta TV.",
+            ". Confira se o aplicativo está disponível nesta TV."
         );
-      },
+      }
     });
   }
   function renderCategory(which) {
@@ -192,7 +196,7 @@
         music: "Música",
         games: "Jogos",
         house: "Casa",
-        apps: "Todos os apps",
+        apps: "Todos os apps"
       },
       ids = [],
       note = "";
@@ -226,7 +230,7 @@
       { id: "com.webos.app.hdmi1", name: "HDMI 1" },
       { id: "com.webos.app.hdmi2", name: "HDMI 2" },
       { id: "com.webos.app.hdmi3", name: "HDMI 3" },
-      { id: "com.webos.app.homeconnect", name: "Central de entradas" },
+      { id: "com.webos.app.homeconnect", name: "Central de entradas" }
     ].forEach(function (input) {
       var b = document.createElement("button");
       b.className = "tile";
@@ -280,7 +284,7 @@
           state.hdmi
             ? "com.webos.app.hdmi" + state.hdmi
             : "com.webos.app.inputpicker",
-          state.hdmi ? "HDMI " + state.hdmi : "Entradas",
+          state.hdmi ? "HDMI " + state.hdmi : "Entradas"
         );
         return;
       }
@@ -318,8 +322,9 @@
       cy = rect.top + rect.height / 2,
       best = null,
       score = Infinity;
-    each(document.querySelectorAll("button"), function (b) {
-      if (b === current || !b.offsetWidth || !b.offsetHeight) return;
+    each(document.querySelectorAll("button, input, textarea"), function (b) {
+      if (b === current || b.disabled || !b.offsetWidth || !b.offsetHeight)
+        return;
       var r = b.getBoundingClientRect(),
         dx = r.left + r.width / 2 - cx,
         dy = r.top + r.height / 2 - cy,
@@ -336,6 +341,10 @@
     if (best) best.focus();
   }
   document.addEventListener("keydown", function (e) {
+    if (window.OwnTVContent && window.OwnTVContent.key(e)) {
+      e.preventDefault();
+      return;
+    }
     var code = e.keyCode,
       current = document.activeElement;
     if (code === 461 || code === 27) {
@@ -346,6 +355,11 @@
       return;
     }
     if (code < 37 || code > 40) return;
+    if (
+      (current.tagName === "INPUT" || current.tagName === "TEXTAREA") &&
+      (code === 37 || code === 39)
+    )
+      return;
     e.preventDefault();
     if (ordering) {
       var id = current.getAttribute("data-order");
@@ -359,6 +373,17 @@
       if (code === 40 && current.parentNode.tagName === "NAV") {
         firstTile();
         return;
+      }
+      if (code === 40 && current.parentNode.id === "shortcuts") {
+        var favorites = Array.prototype.slice.call(
+          el("shortcuts").querySelectorAll("button")
+        );
+        var suggested = document.querySelectorAll("#home-video-items button");
+        var target = suggested[favorites.indexOf(current)] || suggested[0];
+        if (target) {
+          target.focus();
+          return;
+        }
       }
       if (code === 38 && current.parentNode.id === "shortcuts") {
         el("camera-card").focus();
@@ -414,6 +439,7 @@
       }
     }
   });
+  window.OwnTVContent.init({ show: show, toast: toast });
   apply();
   resize();
   clock();

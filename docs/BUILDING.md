@@ -179,3 +179,7 @@ Prepare `RELEASE_NOTES.md` com mudanças e validações reais antes do comando. 
 | Assinatura incompatível | Recupere a chave original, sem apagar os dados |
 | `sourceDirty: true` | Faça commit do código antes de gerar a versão pública |
 | Sem paisagens offline | Execute o download opcional antes de compilar |
+
+## LG webOS 0.2.0
+
+Veja [o guia de build webOS](../webos/README.md#compilar-a-partir-do-código). `scripts/build-webos.sh` empacota app e serviço ES5 em um único IPK. A ponte Python é executada separadamente, fora da TV. Sua configuração privada e os diretórios `private-data` do serviço nunca entram no pacote; o verificador público bloqueia essa situação. Use Node 0.12.2/Chromium 53 como limites de sintaxe para o firmware LG de referência, independentemente da versão usada para empacotar no computador.

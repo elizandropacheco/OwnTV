@@ -7,29 +7,29 @@
       name: "YouTube",
       detail: "Vídeos e canais",
       icon: "assets/youtube.svg",
-      glyph: "▶",
+      glyph: "▶"
     },
     {
       id: "com.webos.app.livetv",
       name: "TV ao vivo",
       detail: "Seus canais",
       icon: "assets/tv.svg",
-      glyph: "TV",
+      glyph: "TV"
     },
     {
       id: "com.webos.app.inputpicker",
       name: "Entradas",
       detail: "HDMI e dispositivos",
       icon: "assets/input.svg",
-      glyph: "HDMI",
+      glyph: "HDMI"
     },
     {
       id: "settings",
       name: "Personalizar",
       detail: "Deixe do seu jeito",
       icon: "assets/settings.svg",
-      glyph: "EP",
-    },
+      glyph: "EP"
+    }
   ];
   function normalize(raw) {
     raw = raw || {};
@@ -56,7 +56,7 @@
       dim: [0, 1, 2, 3, 4].indexOf(raw.dim) >= 0 ? raw.dim : 2,
       rotate: raw.rotate !== false,
       effects: raw.effects !== false,
-      hdmi: [0, 1, 2, 3].indexOf(raw.hdmi) >= 0 ? raw.hdmi : 0,
+      hdmi: [0, 1, 2, 3].indexOf(raw.hdmi) >= 0 ? raw.hdmi : 0
     };
   }
   function move(state, id, delta) {
@@ -86,7 +86,7 @@
     normalize: normalize,
     move: move,
     read: read,
-    write: write,
+    write: write
   };
   if (typeof module === "object" && module.exports) module.exports = api;
   else root.OwnTVModel = api;
