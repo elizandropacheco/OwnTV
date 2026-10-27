@@ -26,3 +26,7 @@ Os JARs ficam por padrão em `build/formatters/`, ignorado pelo Git. Não são p
 O script preserva imports não utilizados. No Java, também preserva a ordem dos imports, a ordem dos modificadores e os literais longos. Kotlin pode ajustar separadores e posição dos imports conforme seu formatador. Não são introduzidos recursos, pacotes ou mudanças intencionais de lógica nessa etapa.
 
 Antes de contribuir, execute a conferência e os checks de build indicados em [BUILDING.md](BUILDING.md). Formatação aprovada não substitui compilação, lint ou os testes funcionais exigidos pela alteração.
+
+## Fontes webOS
+
+Os fontes próprios em `webos/app/` e `webos/service/` precisam continuar compatíveis com ES5. A configuração `.prettierrc.json` desativa vírgulas finais nesses diretórios, inclusive em chamadas de função. Após formatar, execute `npm ci --prefix webos` e `npm test --prefix webos`; `node --check` em um Node recente não basta para comprovar compatibilidade com o runtime antigo da LG. O SDK de fornecedor mantém seu arquivo e créditos originais.

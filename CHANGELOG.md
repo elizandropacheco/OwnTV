@@ -1,5 +1,12 @@
 # Alterações
 
+## Documentação — 27/10/2026
+
+- Estado consolidado, matriz Android/LG, índice dos guias e critérios de conclusão das pendências.
+- Home físico LG e ausência de seleção completa de favoritos destacados nos READMEs.
+- Registro complementar da reprodução nas seis TVs e distinção entre recursos atuais e limpeza histórica dos logos.
+- Sem alteração dos binários Android 0.2.4/webOS 0.2.0.
+
 ## webOS 0.2.0 — 27/10/2026 (experimental)
 
 - Notícias RSS por temas com manchetes rotativas, fonte, data, paginação e cache.

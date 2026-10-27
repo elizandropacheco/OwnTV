@@ -22,3 +22,7 @@ Veja [validation.json](validation.json) e [o registro completo](../../../docs/VA
 A ponte externa precisa permanecer ligada. A execução iniciada no Mac foi testada; o LaunchAgent encontrou restrição de rede local e foi desativado. O instalador automático é fornecido, mas precisa de autorização/validação no computador de destino. Não há promessa de reinício automático já funcionando nesta instalação.
 
 As sugestões não usam histórico nem recomendações pessoais da conta YouTube. O webOS não fornece ao OwnTV o mesmo provedor de conteúdo dos aplicativos Android. Home LG, root, SSH permanente, usuário SSH extra e navegador continuam fora desta versão.
+
+## Documentação complementar
+
+Consulte o [estado consolidado e as pendências](../../../docs/STATUS.pt-BR.md) e o [registro posterior de reprodução](follow-up-validation.json). Home físico continua sendo LG e o bloco Favoritos contém somente quatro atalhos predefinidos; a seleção completa de apps está pendente. O IPK e seu SHA-256 permanecem os mesmos.

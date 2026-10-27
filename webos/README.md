@@ -4,11 +4,13 @@ Implementação separada do Android, com interface HTML/CSS/JavaScript para o Ch
 
 ![Home OwnTV webOS com notícias e sugestões](../docs/screenshots/webos-home.png)
 
+**Home físico ainda abre a LG. A lista completa para escolher apps favoritos não está implementada.** Consulte o [estado atual e as pendências](../docs/STATUS.pt-BR.md).
+
 ## Recursos
 
 - Home aberta, identidade EP/OwnTV configurável, abertura animada, transparência e contornos em gradiente. Foco sem ampliar ou deslocar cards.
 - Quinze fundos da coleção Android em Full HD, alternância inicial de um minuto e escurecimento configurável.
-- Favoritos coloridos por padrão, opção monocromática e ordem persistente.
+- Bloco Favoritos com quatro atalhos predefinidos: YouTube, TV ao vivo, Entradas e Personalizar. Cores/monocromático e ordem persistente; ainda não permite escolher outros apps instalados.
 - Notícias reais em duas linhas abaixo do slogan, alternando a cada 12 segundos; página de notícias com fonte, tema, data e paginação. Temas iniciais: telecom, tecnologia e inteligência artificial. Configuração aceita até oito temas e permite desligar o recurso.
 - Sugestões do YouTube: quatro cards completos por página, miniatura, título, canal e data, na Home e na página Sugeridos. Os canais públicos são configuráveis. Os padrões incluem Elizandro Pacheco, Canaltech, TecMundo e OpenAI.
 - Câmeras: seis prévias por página em três colunas, navegação entre canais, vídeo principal ampliado, modo leve, pausa, áudio, preenchimento/ajuste e reconexão. Requer a [ponte privada](bridge/README.md) em um computador/servidor ligado.

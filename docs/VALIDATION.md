@@ -18,7 +18,7 @@ Verificação em 25/10/2026:
 - Download agendado: duas novas fotos válidas, total de 17 locais nessa execução.
 - Interface verificada na TCL Android TV 14: composição aberta, foco sem escala, quatro sugestões por página e notícias de duas linhas.
 
-Não são medições universais de desempenho ou garantia de compatibilidade com todo firmware. LG/webOS é um alvo futuro.
+Não são medições universais de desempenho ou garantia de compatibilidade com todo firmware. Na rodada 0.2.2, LG/webOS ainda era um alvo futuro; o port posterior tem registros próprios abaixo.
 
 A configuração de CI está em [ci/build.workflow.yml](ci/build.workflow.yml). A conexão utilizada na publicação não possui escopo para criar workflows no GitHub; esse arquivo é um modelo, não um workflow ativo.
 
@@ -54,3 +54,7 @@ Verificações locais: parsing ES5 de todos os fontes próprios do app/serviço,
 A ponte manual permaneceu necessária nesta instalação: o LaunchAgent iniciou, mas o macOS recusou seu acesso de saída à rede local. Foi desativado; a ponte foi mantida no processo autorizado. Inicialização automática após login/reinício **não passou**. A execução depende do Mac ligado, conectado e sem suspensão; o guia descreve instalação em servidor alternativo.
 
 Não houve nova instalação física da versão Android durante esta rodada. Esta validação não elimina a pendência separada de remoção de objetos antigos de Git acessíveis por hash.
+
+## Consolidação da documentação — 27/10/2026
+
+O [estado atual](STATUS.pt-BR.md) registra explicitamente os relatos de que Home abre a LG e de que falta a seleção completa de apps favoritos. A versão LG possui apenas quatro atalhos predefinidos reordenáveis. O [registro complementar](../releases/webos/0.2.0/follow-up-validation.json) preserva a última amostra de reprodução da rodada anterior, sem endereços privados. Esta atualização é documental: não representa novo build nem nova execução física dos testes.

@@ -2,6 +2,8 @@
 
 Atualizado em **27/10/2026**. Este guia prepara uma LG para desenvolvimento e registra os testes realizados. O APK OwnTV é Android e não funciona no webOS; o [piloto webOS](../webos/README.md) usa um pacote IPK separado.
 
+Veja também a [matriz Android × LG e a lista de pendências](STATUS.pt-BR.md), incluindo Home físico e seleção de favoritos.
+
 ## Estado do suporte
 
 | Etapa | Situação |

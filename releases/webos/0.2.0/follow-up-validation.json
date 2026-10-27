@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-27",
+  "version": "0.2.0",
+  "evidence": "Final saved sample from the six-device test session; documentation update did not run a new TV test.",
+  "intervalSeconds": 12,
+  "units": [
+    {
+      "unit": 1,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 306.998,
+      "secondsAdvanced": 12.04,
+      "playerError": null
+    },
+    {
+      "unit": 2,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 307.072,
+      "secondsAdvanced": 12.24,
+      "playerError": null
+    },
+    {
+      "unit": 3,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 305.876,
+      "secondsAdvanced": 12.241,
+      "playerError": null
+    },
+    {
+      "unit": 4,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 185.606,
+      "secondsAdvanced": 12.241,
+      "playerError": null
+    },
+    {
+      "unit": 5,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 306.449,
+      "secondsAdvanced": 12.44,
+      "playerError": null
+    },
+    {
+      "unit": 6,
+      "videoReadyState": 4,
+      "videoSize": [
+        1920,
+        1080
+      ],
+      "playheadSeconds": 268.462,
+      "secondsAdvanced": 8.771,
+      "playerError": null
+    }
+  ],
+  "limitations": [
+    "Snapshots of player state do not certify uninterrupted or 24/7 operation.",
+    "Buffering and reconnections occurred during the session.",
+    "Physical Home still opens LG; full installed-app favorite selection is not implemented."
+  ]
+}

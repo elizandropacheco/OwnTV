@@ -9,7 +9,7 @@
 [![Validação local](https://img.shields.io/badge/build-verificado_localmente-2CEB43)](docs/VALIDATION.md)
 [![Version](https://img.shields.io/badge/version-0.2.4-0084FE)](https://github.com/elizandropacheco/OwnTV)
 
-[English](README.en.md) · [Desenvolvedor](https://elizandropacheco.io/) · [Código](https://github.com/elizandropacheco/OwnTV)
+[Estado atual e pendências](docs/STATUS.pt-BR.md) · [English](README.en.md) · [Desenvolvedor](https://elizandropacheco.io/) · [Código](https://github.com/elizandropacheco/OwnTV)
 
 OwnTV transforma a tela inicial em um espaço organizado para seus aplicativos, console, conteúdos e câmeras. A composição aberta deixa o wallpaper aparecer; o menu superior, o dock e os efeitos de foco ajudam a navegar pelo controle remoto.
 
@@ -31,7 +31,7 @@ A identidade EP usa fundo `#030B12`, azul `#0084FE`, verde `#2CEB43`, linhas geo
 
 Validado em uma TCL com Android TV 14. Os atalhos específicos da TCL dependem do firmware e da entrada HDMI. O OwnTV é um launcher Android: a implementação LG/webOS é separada e não faz parte deste APK.
 
-**LG/webOS:** a [versão experimental 0.2.0](webos/README.md) acrescenta notícias por temas, sugestões públicas do YouTube com quatro cards por página e câmeras por uma ponte privada, além da Home, fundos, favoritos e entradas no estilo Android. As câmeras exigem um computador/servidor ligado; veja [como configurar](webos/bridge/README.md). Não substitui a Home LG nem reproduz todas as integrações Android. Consulte [conta LG Developer, correção de país, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md) e o [registro dos testes nas seis unidades](docs/VALIDATION.md). Root, usuário SSH extra e SSH permanente não estão implementados. Navegador e abertura de URLs permanecem fora do escopo.
+**LG/webOS:** a [versão experimental 0.2.0](webos/README.md) acrescenta notícias por temas, sugestões públicas do YouTube com quatro cards por página e câmeras por uma ponte privada, além da Home, fundos, favoritos e entradas no estilo Android. As câmeras exigem um computador/servidor ligado; veja [como configurar](webos/bridge/README.md). **O botão Home continua abrindo a LG. A seleção completa de apps favoritos ainda não existe: há quatro atalhos predefinidos reordenáveis.** Não reproduz todas as integrações Android. Consulte [conta LG Developer, correção de país, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md) e o [registro dos testes nas seis unidades](docs/VALIDATION.md). Root, usuário SSH extra e SSH permanente não estão implementados. Navegador e abertura de URLs permanecem fora do escopo.
 
 Os arquivos dos wallpapers mantêm a resolução original. A resolução da interface é determinada pelo Android e pode ser inferior à resolução física do painel. O launcher adapta a decodificação à interface para evitar consumo desnecessário de memória.
 
