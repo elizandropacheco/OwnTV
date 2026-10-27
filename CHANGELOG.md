@@ -1,5 +1,14 @@
 # Alterações
 
+## webOS 0.2.1 — 2026-10-27
+
+- Catálogo real da LG por pareamento local, com chave isolada no serviço privado.
+- Seleção e remoção de favoritos, ordenação por controle, ícones nativos e lista vazia suportada.
+- Nove apps por página e quatro favoritos por grupo na Home, com foco e paginação.
+- Migração das preferências antigas e documentação de pareamento e segurança.
+- Home físico permanece LG; a API de launcher padrão não existe no firmware das seis TVs testadas.
+
+
 ## Documentação — 27/10/2026
 
 - Estado consolidado, matriz Android/LG, índice dos guias e critérios de conclusão das pendências.

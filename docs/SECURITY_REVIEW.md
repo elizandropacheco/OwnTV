@@ -59,3 +59,9 @@ A ponte exige token aleatório e IP permitido. Rotas fechadas não aceitam camin
 HTTP/RTSP locais não fornecem sigilo contra observadores da rede. Use rede confiável ou VPN/HTTPS administrados; não exponha a ponte diretamente à internet. Um token válido autoriza todas as câmeras dessa ponte. Código aberto, revisão e testes não constituem garantia absoluta de ausência de vulnerabilidades.
 
 Esta revisão da árvore e da release atual não remove objetos antigos sem referência que ainda estejam acessíveis por hash no provedor Git. A eliminação desses objetos é uma pendência separada da política de não incluir originais nas novas entregas.
+
+## Pareamento de aplicativos — webOS 0.2.1
+
+A descoberta de apps usa o SSAP da própria TV. A chave fica no serviço privado (arquivo 0600/diretório 0700), e os métodos de leitura/gravação exigem a identidade do OwnTV. A interface não recebe um destino de rede fornecido pelo usuário: usa endereços das interfaces locais da TV. A consulta automática sem chave não abre pedido de pareamento; a ação Atualizar apps é explícita. Testes cobrem validação da chave, isolamento entre aplicativos, resposta inválida e pareamento revogado.
+
+A revisão do código e do IPK 0.2.1 procurou os valores privados reais das câmeras, os endereços/passphrases das TVs e as chaves de pareamento, sem correspondências; Gitleaks também não encontrou segredos na árvore candidata. Isso não resolve os objetos antigos de logos ainda acessíveis no GitHub, nem equivale a uma garantia absoluta de segurança.

@@ -1,1 +1,7 @@
-{"name":"io.elizandropacheco.owntv.webos.content","version":"0.2.0","description":"OwnTV news, public video feeds and private camera bridge settings","main":"service.js","license":"GPL-3.0-only"}
+{
+  "name": "io.elizandropacheco.owntv.webos.content",
+  "version": "0.2.1",
+  "description": "OwnTV news, public video feeds and private camera bridge settings",
+  "main": "service.js",
+  "license": "GPL-3.0-only"
+}

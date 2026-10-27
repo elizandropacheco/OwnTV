@@ -1,0 +1,7 @@
+{
+  "id": "io.elizandropacheco.owntv.webos",
+  "version": "0.2.1",
+  "platform": "webOS",
+  "stage": "pilot",
+  "sha256": "8407506c01f9a91ca3a4c1fb51ceed0a746d57faf4335729cb25df935cce115d"
+}

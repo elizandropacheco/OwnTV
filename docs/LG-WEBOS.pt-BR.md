@@ -13,7 +13,7 @@ Veja também a [matriz Android × LG e a lista de pendências](STATUS.pt-BR.md),
 | Hardware e firmware | Consultados diretamente nos aparelhos; resumo abaixo |
 | Root e SSH persistente após expiração do modo dev | Não aplicados nem validados |
 | Substituição da Home LG | Não implementada nem validada |
-| OwnTV para webOS | Versão experimental 0.2.0 com notícias, sugestões e câmeras; veja o [registro de validação](../releases/webos/0.2.0/README.md). O APK Android não é instalável |
+| OwnTV para webOS | Versão experimental 0.2.1 com seleção de favoritos, notícias, sugestões e câmeras; veja o [registro de validação](../releases/webos/0.2.1/README.md). O APK Android não é instalável |
 
 ## 1. Conta de desenvolvedor
 
@@ -145,3 +145,7 @@ O [guia webOS](../webos/README.md) descreve a instalação do app e serviço no 
 Para câmeras, instale a [ponte privada no computador/servidor](../webos/bridge/README.md) e configure somente endereço e chave da ponte em cada TV. O gravador mantém seu usuário/senha no servidor; esses valores nunca devem entrar no IPK, exemplos, capturas ou Git. O mosaico mostra seis JPEGs atualizados por página e o player abre um HLS por TV. A [LG documenta HLS](https://webostv.developer.lge.com/develop/specifications/streaming-protocol-drm); o port não tenta executar a biblioteca RTSP Android no webOS.
 
 No macOS, o serviço automático pode precisar de autorização em **Ajustes do Sistema → Privacidade e Segurança → Rede Local**. O funcionamento iniciado pelo terminal não comprova que o LaunchAgent tem a mesma autorização. Confira a imagem real na TV, reinício do serviço e operação após login antes de depender da inicialização automática.
+
+## Aplicativos favoritos — OwnTV 0.2.1
+
+A lista dos apps da própria LG agora pode ser consultada pelo pareamento de controle remoto. Em **Editar favoritos**, escolha **Atualizar apps**, permita o aviso na TV e marque seus aplicativos com OK. **Ordenar favoritos** permite mover os escolhidos com as setas. Veja [o guia de pareamento, navegação e segurança](LG-FAVORITOS.pt-BR.md). O botão Home físico continua sendo da LG: `setDefaultApp` respondeu `Unknown method` nas seis unidades.

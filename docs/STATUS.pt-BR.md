@@ -1,15 +1,15 @@
 # Estado do projeto e pendências
 
-Atualizado em **27/10/2026**, após a entrega Android **0.2.4** e LG webOS **0.2.0 experimental**. Este documento separa implementação, validação e itens ainda não atendidos. Não é uma promessa de equivalência entre as plataformas.
+Atualizado em **27/10/2026**, após a entrega Android **0.2.4** e LG webOS **0.2.1 experimental**. Este documento separa implementação, validação e itens ainda não atendidos. Não é uma promessa de equivalência entre as plataformas.
 
-**O objetivo de substituir a tela inicial das LG ainda não foi atendido. O botão Home físico abre a Home LG. A lista completa de aplicativos para selecionar favoritos também não foi implementada no port LG.**
+**O objetivo de substituir a tela inicial das LG ainda não foi atendido. O botão Home físico abre a Home LG. A seleção e a ordenação dos apps favoritos foram implementadas no webOS 0.2.1.**
 
 ## O que está entregue
 
-| Solicitação | Android | LG webOS 0.2.0 |
+| Solicitação | Android | LG webOS 0.2.1 |
 | --- | --- | --- |
 | Home aberta, fundos, menus, identidade EP/OwnTV e abertura animada | Implementado; testes anteriores na TCL | Implementado e conferido nas seis LG |
-| Favoritos coloridos e ordem configurável | Lista de aplicativos e personalização | Quatro atalhos predefinidos, com cores e ordem; seleção completa de apps pendente |
+| Favoritos coloridos e ordem configurável | Lista de aplicativos e personalização | Catálogo da própria TV, seleção/remoção, ícones coloridos e ordenação com controle; configuração por TV |
 | Botão Home abrindo diretamente OwnTV | Confirmado pelo usuário no controle físico em versão anterior; firmware dependente | **Não implementado**; abre LG |
 | Entradas/HDMI | Incluído no APK 0.2.4; teste físico desta revisão pendente | HDMI 1–3 e central de entradas LG |
 | Notícias abaixo do slogan, por temas | Implementado, com configuração de intervalo | Manchetes reais, fonte/data, temas configuráveis, página própria; alternância de 12 segundos |
@@ -25,11 +25,11 @@ Atualizado em **27/10/2026**, após a entrega Android **0.2.4** e LG webOS **0.2
 
 ## Home e favoritos: comportamento atual
 
-No **OwnTV**, a aba **Início** contém um bloco chamado Favoritos. Seus quatro itens atuais são **YouTube, TV ao vivo, Entradas e Personalizar**. Eles são fixados no catálogo do código; a configuração muda a ordem e as cores. Não há seleção dos demais aplicativos instalados, inclusão/remoção arbitrária ou descoberta completa. O menu Apps também usa esse catálogo limitado.
+No **OwnTV**, **Editar favoritos** e **Apps** mostram o catálogo fornecido pela LG. É possível marcar/desmarcar com OK e ordenar os favoritos com as setas. A lista usa nove cards por página; a Home mostra grupos de quatro. TV ao vivo, Entradas e Personalizar são atalhos adicionais. O pareamento e a configuração são individuais por TV. Veja [as instruções completas](LG-FAVORITOS.pt-BR.md).
 
 Dentro do OwnTV, **Voltar** fecha a câmera ampliada e retorna ao mosaico; outro Voltar retorna à página Início. O botão **Home do controle físico** sai para a interface LG. Se o aplicativo estiver fechado ou em segundo plano, abra OwnTV pelo menu LG. O aplicativo não intercepta essa tecla e não inicia automaticamente ao ligar a TV.
 
-As APIs de inventário geral de apps foram negadas no acesso de desenvolvimento usado. Isso explica a limitação atual, mas não torna o catálogo completo uma funcionalidade entregue. Uma próxima implementação precisa oferecer uma seleção de apps por um mecanismo permitido, ou um catálogo manual claramente identificado, com testes de abertura e persistência nas seis TVs.
+A API Luna de inventário continua negada, mas o pareamento SSAP autorizado permitiu obter o catálogo real nas seis LG. As credenciais ficam apenas no serviço privado de cada TV. O teste de definição direta da Home (`setDefaultApp`) retornou **Unknown method** nas seis; nenhum interceptador de teclas foi instalado.
 
 ## Pendências em ordem de prioridade
 
@@ -37,7 +37,6 @@ As APIs de inventário geral de apps foram negadas no acesso de desenvolvimento 
 | --- | --- | --- |
 | Alta — privacidade | Remover definitivamente os originais dos logos acessíveis por objetos antigos do GitHub | Verificar anonimamente os antigos caminhos/objetos e confirmar indisponibilidade; limpar o `main` ou os novos builds não basta. A cópia privada limpa existe, mas a remoção definitiva ainda está pendente; uma nova conferência anônima nesta data confirmou acessos históricos ainda disponíveis |
 | Alta — objetivo principal LG | Substituir Home e definir o comportamento ao ligar a TV | Encontrar e validar uma solução compatível com o firmware, com reversão; confirmar o Home físico vindo de outros apps e após reiniciar. Root não foi aplicado nem validado |
-| Alta — uso diário | Lista de apps e seleção real de favoritos LG | Escolher/adicionar/remover apps, obter ícones, ordenar, abrir e persistir após atualização/reinício; testar nas seis |
 | Alta — câmeras | Ponte independente da sessão manual do Mac | Serviço com rede autorizada que volte após login/reinício, ou migração para servidor sempre ligado; testar queda de rede, retomada e suspensão |
 | Média — estabilidade | Validar câmeras por períodos longos e investigar fontes sem prévia | Diferenciar problemas de fonte/rede de falhas do player, medir quedas/reconexões e testar por horas. A rodada atual não certifica operação contínua 24/7 |
 | Média — conteúdo | Confirmar abertura do vídeo exato no YouTube; avaliar outros provedores | Conferência na tela real e APIs permitidas. Não inventar duração, histórico ou recomendações ausentes |
@@ -51,6 +50,8 @@ Nenhuma dessas pendências foi convertida automaticamente em promessa de compati
 
 ## Testes e limites da evidência
 
+A validação de favoritos da versão 0.2.1 está no [registro próprio](../releases/webos/0.2.1/README.md). Os resultados de câmeras abaixo pertencem à rodada 0.2.0 e não significam novo teste contínuo nesta entrega.
+
 - Instalação e atualizações por cima nas seis LG 43LM631C0SB, firmware 05.40.97/SDK 4.10.0; configurações da ponte preservadas.
 - 27 verificações de interface por TV, incluindo navegação, notícias/sugestões, configurações, entradas e limites de tela.
 - Seis prévias na primeira página e player principal/leve; controles de pausa/áudio, foco ao voltar e proporção. Algumas fontes não responderam na varredura completa.
@@ -60,7 +61,7 @@ Nenhuma dessas pendências foi convertida automaticamente em promessa de compati
 - Ponte manual funciona. O LaunchAgent iniciou, mas não alcançou o gravador; foi desativado. A causa observada é compatível com restrição de rede local do macOS, sem autorização operacional resolvida.
 - Repositório/artefato atual verificados com guardas de recursos públicos, busca de valores privados, Gitleaks e testes de compatibilidade/segurança. Isso não remove objetos históricos do provedor nem garante ausência absoluta de falhas.
 
-Veja [VALIDATION.md](VALIDATION.md), [manifesto original da release](../releases/webos/0.2.0/validation.json) e [revisão de segurança](SECURITY_REVIEW.md). A documentação complementar não muda os bytes do IPK publicado.
+Veja [VALIDATION.md](VALIDATION.md), [manifesto original da release](../releases/webos/0.2.0/validation.json) e [revisão de segurança](SECURITY_REVIEW.md). O IPK 0.2.1 é uma nova entrega; os arquivos históricos 0.2.0 não foram substituídos.
 
 ## Itens retirados do escopo ou não suportados
 
@@ -74,6 +75,7 @@ Não há imagem Android validada para instalar no hardware interno dessas LG. Tr
 | --- | --- |
 | Android: instalação, modo desenvolvedor, depuração e reversão | [INSTALLATION.pt-BR.md](INSTALLATION.pt-BR.md) |
 | LG: conta, erro de país, Developer Mode, SSH, hardware, firmware e horário | [LG-WEBOS.pt-BR.md](LG-WEBOS.pt-BR.md) |
+| LG: pareamento, seleção e ordem de favoritos | [LG-FAVORITOS.pt-BR.md](LG-FAVORITOS.pt-BR.md) |
 | LG: recursos, navegação, build e IPK | [webos/README.md](../webos/README.md) |
 | Ponte: dependências, arquivo privado, configuração da TV, serviço e desativação | [webos/bridge/README.md](../webos/bridge/README.md) |
 | Build Android, assinatura e publicação | [BUILDING.md](BUILDING.md) |

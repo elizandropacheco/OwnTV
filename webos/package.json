@@ -1,7 +1,11 @@
 {
   "name": "owntv-webos-validation",
   "private": true,
-  "version": "0.2.0",
-  "scripts": {"test": "node tests/es5.test.cjs && node tests/model.test.cjs && node tests/content.test.cjs && node tests/service.test.cjs"},
-  "devDependencies": {"acorn": "8.18.0"}
+  "version": "0.2.1",
+  "scripts": {
+    "test": "node tests/es5.test.cjs && node tests/model.test.cjs && node tests/content.test.cjs && node tests/service.test.cjs && node tests/apps-discovery.test.cjs"
+  },
+  "devDependencies": {
+    "acorn": "8.18.0"
+  }
 }

@@ -1,0 +1,821 @@
+{
+  "date": "2026-10-27",
+  "version": "0.2.1",
+  "sha256": "8407506c01f9a91ca3a4c1fb51ceed0a746d57faf4335729cb25df935cce115d",
+  "devices": 6,
+  "hardware": {
+    "model": "43LM631C0SB",
+    "firmware": "05.40.97",
+    "sdk": "4.10.0",
+    "browser": "Chromium 53",
+    "serviceRuntime": "Node 0.12.2"
+  },
+  "samePackageUploadedToAllSix": true,
+  "interfaceChecks": [
+    {
+      "unit": 1,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": false
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "tests": [
+        {
+          "name": "Real installed app inventory",
+          "ok": true
+        },
+        {
+          "name": "Nine apps on first page",
+          "ok": true
+        },
+        {
+          "name": "Apps screen bounds",
+          "ok": true
+        },
+        {
+          "name": "First app focused on entry",
+          "ok": true
+        },
+        {
+          "name": "Add selected apps",
+          "ok": true
+        },
+        {
+          "name": "Remove one favorite",
+          "ok": true
+        },
+        {
+          "name": "Toggle retains focus",
+          "ok": true
+        },
+        {
+          "name": "App pagination",
+          "ok": true
+        },
+        {
+          "name": "Second app page bounds",
+          "ok": true
+        },
+        {
+          "name": "Move favorite right",
+          "ok": true
+        },
+        {
+          "name": "Move favorite left",
+          "ok": true
+        },
+        {
+          "name": "Move favorite down row",
+          "ok": true
+        },
+        {
+          "name": "Move favorite up row",
+          "ok": true
+        },
+        {
+          "name": "Cannot move before first",
+          "ok": true
+        },
+        {
+          "name": "Four complete favorites per home page",
+          "ok": true
+        },
+        {
+          "name": "Home bounds",
+          "ok": true
+        },
+        {
+          "name": "Menu Down first favorite",
+          "ok": true
+        },
+        {
+          "name": "Favorites Up cameras",
+          "ok": true
+        },
+        {
+          "name": "Right moves to next home page",
+          "ok": true
+        },
+        {
+          "name": "Paged home bounds",
+          "ok": true
+        },
+        {
+          "name": "Left returns to prior page",
+          "ok": true
+        },
+        {
+          "name": "Reorder across pagination",
+          "ok": true
+        },
+        {
+          "name": "Selection and order after page reload",
+          "ok": true
+        },
+        {
+          "name": "Native icons loaded",
+          "ok": false
+        }
+      ]
+    }
+  ],
+  "followUpChecks": [
+    {
+      "unit": 1,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    },
+    {
+      "unit": 2,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    },
+    {
+      "unit": 3,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    },
+    {
+      "unit": 4,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    },
+    {
+      "unit": 5,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    },
+    {
+      "unit": 6,
+      "emptyState": true,
+      "reopenSelector": true,
+      "originalOrderRestored": true,
+      "reloadPreservesOriginal": true,
+      "nativeIconsReady": true,
+      "iconFallbacks": 0
+    }
+  ],
+  "finalCatalogChecks": [
+    {
+      "unit": 1,
+      "appCount": 14,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    },
+    {
+      "unit": 2,
+      "appCount": 14,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    },
+    {
+      "unit": 3,
+      "appCount": 14,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    },
+    {
+      "unit": 4,
+      "appCount": 14,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    },
+    {
+      "unit": 5,
+      "appCount": 14,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    },
+    {
+      "unit": 6,
+      "appCount": 15,
+      "secondPageBounds": true,
+      "secondPageIcons": true
+    }
+  ],
+  "privateConfigurationPreserved": [
+    {
+      "unit": 1,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    },
+    {
+      "unit": 2,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    },
+    {
+      "unit": 3,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    },
+    {
+      "unit": 4,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    },
+    {
+      "unit": 5,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    },
+    {
+      "unit": 6,
+      "appsConnection": true,
+      "bridge": true,
+      "status": "0.2.1"
+    }
+  ],
+  "youtubeLaunch": [
+    {
+      "unit": 1,
+      "youtubeForeground": true
+    },
+    {
+      "unit": 2,
+      "youtubeForeground": true
+    },
+    {
+      "unit": 3,
+      "youtubeForeground": true
+    },
+    {
+      "unit": 4,
+      "youtubeForeground": true
+    },
+    {
+      "unit": 5,
+      "youtubeForeground": true
+    },
+    {
+      "unit": 6,
+      "youtubeForeground": true
+    }
+  ],
+  "netflixLaunch": [
+    {
+      "unit": 1,
+      "netflixForeground": true
+    },
+    {
+      "unit": 2,
+      "netflixForeground": true
+    },
+    {
+      "unit": 3,
+      "netflixForeground": true
+    },
+    {
+      "unit": 4,
+      "netflixForeground": false
+    },
+    {
+      "unit": 5,
+      "netflixForeground": true
+    },
+    {
+      "unit": 6,
+      "netflixForeground": false
+    }
+  ],
+  "homeDefaultAPI": {
+    "allSix": "Unknown method",
+    "homeReplaced": false
+  },
+  "security": {
+    "gitleaksFindings": 0,
+    "privateValueMatchesInSourceAndIPK": 0,
+    "pairingKeysPublished": false
+  },
+  "limitations": [
+    "Initial icon observations sampled loading images; later checks confirmed all first/second page native icons.",
+    "Netflix redirected to LG Content Store on two TVs; reason not confirmed.",
+    "Home button remains LG; no helper or root installed.",
+    "UI tests automated on real devices; no physical power-cycle or prolonged camera test in this release."
+  ]
+}

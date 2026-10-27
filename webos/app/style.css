@@ -1096,3 +1096,108 @@ html.camera-live #stage {
   font-size: 40px;
   margin: 5px 0;
 }
+
+/* Fixed pages preserve safe margins on Chromium 53; never wrap the home rail. */
+.apps-toolbar {
+  margin: 10px 0 16px;
+}
+.apps-toolbar button {
+  margin-right: 16px;
+  font-size: 23px;
+}
+.apps-toolbar .selected {
+  border-color: #2ceb43;
+}
+#apps-status {
+  height: 28px;
+  margin: 6px 0 12px;
+  color: #b0c4cf;
+  font-size: 21px;
+}
+#apps-help {
+  font-size: 23px;
+  margin: 10px 0;
+}
+.apps-grid {
+  display: flex;
+  flex-wrap: wrap;
+  height: 528px;
+  align-content: flex-start;
+  padding: 6px;
+}
+#apps-items .tile {
+  width: 552px;
+  height: 156px;
+  margin: 0 24px 20px 0;
+  padding: 18px;
+  flex-direction: row;
+  text-align: left;
+  justify-content: flex-start;
+}
+#apps-items .tile:nth-child(3n) {
+  margin-right: 0;
+}
+#apps-items .tile-icon {
+  width: 90px;
+  min-width: 90px;
+  height: 90px;
+  margin: 0 24px 0 0;
+}
+#apps-items .tile strong {
+  max-width: 372px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#apps-items .tile small {
+  font-size: 20px;
+}
+.tile.native-app .tile-icon {
+  background: transparent;
+}
+.tile.native-app img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: none;
+  border-radius: 12px;
+}
+#shortcuts .native-app .tile-icon {
+  width: 72px;
+  height: 64px;
+}
+#shortcuts .native-app .tile-icon img {
+  width: 64px;
+  height: 64px;
+}
+.mono .tile.native-app img {
+  filter: grayscale(1);
+}
+#apps-items .favorite-selected small {
+  color: #85e598;
+}
+#apps-items .moving {
+  border: 3px solid #2ceb43;
+  background-color: #1c4540;
+}
+#apps-page .page-pager {
+  margin: 8px 0;
+}
+#shortcuts .tile {
+  flex-shrink: 0;
+}
+#shortcuts .tile strong {
+  max-width: 355px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.favorites .pager button {
+  padding: 6px 16px;
+  font-size: 21px;
+}
+.favorites .pager span {
+  min-width: 100px;
+  text-align: center;
+  font-size: 20px;
+}

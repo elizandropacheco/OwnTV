@@ -58,3 +58,9 @@ Não houve nova instalação física da versão Android durante esta rodada. Est
 ## Consolidação da documentação — 27/10/2026
 
 O [estado atual](STATUS.pt-BR.md) registra explicitamente os relatos de que Home abre a LG e de que falta a seleção completa de apps favoritos. A versão LG possui apenas quatro atalhos predefinidos reordenáveis. O [registro complementar](../releases/webos/0.2.0/follow-up-validation.json) preserva a última amostra de reprodução da rodada anterior, sem endereços privados. Esta atualização é documental: não representa novo build nem nova execução física dos testes.
+
+## LG webOS 0.2.1 — favoritos, 27/10/2026
+
+Implementada a descoberta do catálogo real por pareamento SSAP local, com chave privada em cada TV. Seleção, remoção, ordem, paginação, foco, lista vazia e persistência foram exercitados por automação nas seis LG. O YouTube abriu nas seis; o Netflix abriu em quatro e redirecionou para a loja LG em duas. A configuração privada das câmeras permaneceu presente após atualizar. Veja [o registro detalhado](../releases/webos/0.2.1/README.md) e [o manifesto de evidências](../releases/webos/0.2.1/validation.json).
+
+O Home físico continua LG. `setDefaultApp` retornou `Unknown method` nas seis. Não se considera atendida a substituição do launcher nem inicialização automática. Não houve teste elétrico de reinício nem nova certificação das câmeras por horas.

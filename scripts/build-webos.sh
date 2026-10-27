@@ -13,6 +13,7 @@ node --check "$ROOT/webos/service/service.js"
 node "$ROOT/webos/tests/content.test.cjs"
 node "$ROOT/webos/tests/service.test.cjs"
 node "$ROOT/webos/tests/model.test.cjs"
+node "$ROOT/webos/tests/apps-discovery.test.cjs"
 python3 - "$ROOT" <<'VERIFY'
 import json,sys
 from pathlib import Path

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=1920, initial-scale=1" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data: blob: https: http:; connect-src https: http:; media-src https: http: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'"
+      content="default-src 'self'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data: blob: https: http:; connect-src https: http: ws:; media-src https: http: blob:; object-src 'none'; frame-src 'none'; base-uri 'none'"
     />
     <title>OwnTV</title>
     <link rel="stylesheet" href="style.css" />
@@ -62,7 +62,14 @@
         <section class="favorites">
           <div class="section-label">
             <h2>Favoritos</h2>
-            <span>← → escolher · OK abrir</span>
+            <div class="pager">
+              <button id="favorites-prev" aria-label="Favoritos anteriores">
+                ←</button
+              ><span id="favorites-count"></span
+              ><button id="favorites-next" aria-label="Próximos favoritos">
+                →</button
+              ><button data-page="favorites">Editar favoritos</button>
+            </div>
           </div>
           <div id="shortcuts" class="tiles"></div>
         </section>
@@ -93,6 +100,26 @@
         <div id="category-items" class="tiles"></div>
         <div id="category-note" class="notice" hidden></div>
       </section>
+      <section id="apps-page" class="page" hidden>
+        <div class="section-label">
+          <h1 id="apps-title">Aplicativos</h1>
+          <button data-page="home">Voltar ao início</button>
+        </div>
+        <div class="toolbar apps-toolbar">
+          <button id="apps-open">Todos os apps</button
+          ><button id="apps-select">Escolher favoritos</button
+          ><button id="apps-order">Ordenar favoritos</button
+          ><button id="apps-refresh">Atualizar apps</button>
+        </div>
+        <p id="apps-help" class="intro"></p>
+        <p id="apps-status" role="status"></p>
+        <div id="apps-items" class="apps-grid"></div>
+        <div class="page-pager">
+          <button id="apps-prev">← Anteriores</button
+          ><span id="apps-page-number"></span
+          ><button id="apps-next">Próximos →</button>
+        </div>
+      </section>
       <section id="settings" class="page" hidden>
         <div class="section-label">
           <h1>Configurações</h1>
@@ -112,8 +139,8 @@
           ><button id="order-option" data-action="order">
             <span class="setting-icon"
               ><img src="assets/order.svg" alt="" /></span
-            ><strong>Ordem dos favoritos</strong
-            ><small>Mover antes ou depois</small>
+            ><strong>Aplicativos favoritos</strong
+            ><small>Escolher e ordenar</small>
           </button>
           <button data-action="wallpaper">
             <span class="setting-icon"
@@ -162,11 +189,6 @@
             ><small>Ponte privada e acesso</small>
           </button>
         </div>
-        <div id="order-editor" class="notice" hidden>
-          <h2>Organizar favoritos</h2>
-          <p>Escolha um item e use ← ou → para movê-lo. OK conclui.</p>
-          <div id="order-items"></div>
-        </div>
         <p id="photo-credit" class="photo-credit"></p>
       </section>
       <section id="about" class="page" hidden>
@@ -185,7 +207,7 @@
               o projeto com uma estrela no GitHub.
             </p>
             <p class="muted">
-              webOS 0.2.0<br />Notícias por temas, vídeos públicos de canais
+              webOS 0.2.1<br />Notícias por temas, vídeos públicos de canais
               escolhidos e câmeras por ponte privada. O botão Home continua
               abrindo a tela da LG.
             </p>
@@ -309,7 +331,7 @@
       <footer>
         <span>OwnTV <small>· piloto LG</small></span
         ><button data-page="inputs">Entradas</button
-        ><button data-page="settings">Personalizar apps</button
+        ><button data-page="favorites">Personalizar apps</button
         ><button data-action="games-settings">Cards e jogos</button
         ><button data-page="settings">Configurações</button
         ><button data-page="about">Sobre</button>
@@ -324,6 +346,7 @@
     <script src="model.js"></script>
     <script src="cameras.js"></script>
     <script src="content-ui.js"></script>
+    <script src="apps-discovery.js"></script>
     <script src="app.js"></script>
   </body>
 </html>

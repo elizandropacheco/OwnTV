@@ -3,7 +3,11 @@
   var model = window.OwnTVModel,
     state = model.read(localStorage),
     page = "home",
-    ordering = false,
+    appsMode = "open",
+    appsOffset = 0,
+    favoriteOffset = 0,
+    movingId = null,
+    appsStatus = "",
     toastTimer,
     lastTile = null,
     photoIndex = state.wallpaper;
@@ -33,21 +37,21 @@
     }
   }
   function item(id) {
-    return model.catalog.filter(function (a) {
+    return model.appsFor(state).filter(function (a) {
       return a.id === id;
     })[0];
   }
   function firstTile() {
     var b = el("shortcuts").querySelector("button");
     if (b) b.focus();
+    else document.querySelector('[data-page="favorites"]').focus();
   }
   function selectedNav() {
     return document.querySelector("nav .selected") || el("home-nav");
   }
   function show(next) {
     page = next;
-    ordering = false;
-    el("order-editor").hidden = true;
+    movingId = null;
     each(document.querySelectorAll(".page"), function (p) {
       p.hidden = true;
     });
@@ -61,6 +65,12 @@
     if (next === "home") {
       el("home").hidden = false;
       firstTile();
+    } else if (next === "apps" || next === "favorites") {
+      el("apps-page").hidden = false;
+      appsMode = next === "favorites" ? "select" : "open";
+      appsOffset = 0;
+      renderApps();
+      (el("apps-items").firstChild || el("apps-refresh")).focus();
     } else if (next === "settings") {
       el("settings").hidden = false;
       el("brand-option").focus();
@@ -124,18 +134,19 @@
     document.body.classList.toggle("mono", !state.colored);
     document.body.classList.toggle("no-effects", !state.effects);
     photo();
-    renderTiles(el("shortcuts"), state.order);
+    renderFavorites();
   }
   function renderTiles(host, ids) {
     host.textContent = "";
     ids.forEach(function (id) {
-      var a = item(id),
-        b = document.createElement("button"),
+      var a = item(id);
+      if (!a) return;
+      var b = document.createElement("button"),
         icon = document.createElement("span"),
         text = document.createElement("span"),
         name = document.createElement("strong"),
         desc = document.createElement("small");
-      b.className = "tile";
+      b.className = "tile" + (a.nativeIcon ? " native-app" : "");
       b.setAttribute("data-id", id);
       b.setAttribute("aria-label", a.name);
       icon.className = "tile-icon";
@@ -143,6 +154,9 @@
         var image = document.createElement("img");
         image.src = a.icon;
         image.alt = "";
+        image.onerror = function () {
+          icon.textContent = a.glyph;
+        };
         icon.appendChild(image);
       } else icon.textContent = a.glyph;
       name.textContent = a.name;
@@ -153,11 +167,180 @@
       b.appendChild(text);
       b.addEventListener("click", function () {
         lastTile = id;
-        launch(a.id, a.name);
+        if (host.id === "apps-items" && appsMode === "select") {
+          var next = model.toggle(state, id);
+          save(next);
+          renderApps(id);
+        } else if (host.id === "apps-items" && appsMode === "order") {
+          movingId = movingId === id ? null : id;
+          renderApps(id);
+        } else launch(a.id, a.name);
       });
       host.appendChild(b);
     });
   }
+  function renderFavorites() {
+    var focused = document.activeElement,
+      restore =
+        focused && focused.parentNode && focused.parentNode.id === "shortcuts"
+          ? focused.getAttribute("data-id")
+          : null;
+    favoriteOffset = Math.max(
+      0,
+      Math.min(
+        favoriteOffset,
+        Math.floor(Math.max(0, state.order.length - 1) / 4) * 4
+      )
+    );
+    renderTiles(
+      el("shortcuts"),
+      state.order.slice(favoriteOffset, favoriteOffset + 4)
+    );
+    el("favorites-count").textContent = state.order.length
+      ? favoriteOffset +
+        1 +
+        "–" +
+        Math.min(favoriteOffset + 4, state.order.length) +
+        " / " +
+        state.order.length
+      : "Escolha seus apps";
+    el("favorites-prev").disabled = favoriteOffset === 0;
+    el("favorites-next").disabled = favoriteOffset + 4 >= state.order.length;
+    if (restore) {
+      var previous = el("shortcuts").querySelector(
+        '[data-id="' + restore + '"]'
+      );
+      if (previous) previous.focus();
+    }
+    if (!state.order.length) {
+      var b = document.createElement("button");
+      b.className = "tile";
+      b.textContent = "＋ Adicionar favoritos";
+      b.onclick = function () {
+        show("favorites");
+      };
+      el("shortcuts").appendChild(b);
+    }
+  }
+  function appIds() {
+    return appsMode === "order"
+      ? state.order
+      : model.appsFor(state).map(function (a) {
+          return a.id;
+        });
+  }
+  function renderApps(focusId) {
+    var ids = appIds();
+    appsOffset = Math.max(
+      0,
+      Math.min(appsOffset, Math.floor(Math.max(0, ids.length - 1) / 9) * 9)
+    );
+    el("apps-title").textContent =
+      appsMode === "select"
+        ? "Escolher favoritos"
+        : appsMode === "order"
+          ? "Ordenar favoritos"
+          : "Todos os apps";
+    el("apps-help").textContent =
+      appsMode === "select"
+        ? "OK adiciona ou remove. ★ indica favorito. Suas escolhas são salvas automaticamente."
+        : appsMode === "order"
+          ? movingId
+            ? "Movendo: use as setas. OK confirma a posição; Voltar solta o item."
+            : "Escolha um favorito e pressione OK para mover. Depois use as setas e OK para concluir."
+          : "OK abre o aplicativo. Use Escolher favoritos para personalizar o início.";
+    el("apps-status").textContent =
+      appsStatus ||
+      (state.apps.length
+        ? state.apps.length + " aplicativos encontrados nesta TV"
+        : "Atualize a lista para descobrir os aplicativos instalados nesta TV.");
+    renderTiles(el("apps-items"), ids.slice(appsOffset, appsOffset + 9));
+    each(el("apps-items").querySelectorAll("button"), function (b) {
+      var id = b.getAttribute("data-id"),
+        selected = state.order.indexOf(id) >= 0;
+      b.classList.toggle("favorite-selected", selected);
+      b.classList.toggle("moving", movingId === id);
+      if (appsMode === "select")
+        b.setAttribute("aria-pressed", String(selected));
+      b.querySelector("small").textContent =
+        appsMode === "order"
+          ? "Posição " +
+            (state.order.indexOf(id) + 1) +
+            (movingId === id ? " · movendo" : " · OK mover")
+          : selected
+            ? "★ Favorito"
+            : appsMode === "select"
+              ? "＋ Adicionar"
+              : "OK abrir";
+    });
+    el("apps-page-number").textContent = ids.length
+      ? appsOffset +
+        1 +
+        "–" +
+        Math.min(appsOffset + 9, ids.length) +
+        " de " +
+        ids.length
+      : "Nenhum favorito — use Escolher favoritos";
+    el("apps-prev").disabled = appsOffset === 0;
+    el("apps-next").disabled = appsOffset + 9 >= ids.length;
+    ["open", "select", "order"].forEach(function (mode) {
+      el("apps-" + mode).classList.toggle("selected", appsMode === mode);
+    });
+    if (focusId) {
+      var b = el("apps-items").querySelector('[data-id="' + focusId + '"]');
+      if (b) b.focus();
+    }
+  }
+  function refreshApps(interactive) {
+    appsStatus = "Consultando os aplicativos desta TV…";
+    if (page === "apps" || page === "favorites") renderApps();
+    window.OwnTVApps.discover(
+      interactive,
+      function (message) {
+        appsStatus = message;
+        if (page === "apps" || page === "favorites") renderApps();
+      },
+      function (error, apps) {
+        var active = document.activeElement,
+          focusId =
+            active && active.parentNode.id === "apps-items"
+              ? active.getAttribute("data-id")
+              : null;
+        if (error) appsStatus = error;
+        else {
+          save(model.updateApps(state, apps));
+          appsStatus =
+            state.apps.length + " aplicativos encontrados · lista atualizada";
+        }
+        if (page === "apps" || page === "favorites") renderApps(focusId);
+        if (interactive && error) toast(error);
+      }
+    );
+  }
+  ["open", "select", "order"].forEach(function (mode) {
+    el("apps-" + mode).onclick = function () {
+      appsMode = mode;
+      appsOffset = 0;
+      movingId = null;
+      renderApps();
+      (el("apps-items").firstChild || el("apps-select")).focus();
+    };
+  });
+  el("apps-refresh").onclick = function () {
+    refreshApps(true);
+  };
+  [-1, 1].forEach(function (delta) {
+    el(delta < 0 ? "favorites-prev" : "favorites-next").onclick = function () {
+      favoriteOffset += delta * 4;
+      renderFavorites();
+      firstTile();
+    };
+    el(delta < 0 ? "apps-prev" : "apps-next").onclick = function () {
+      appsOffset += delta * 9;
+      renderApps();
+      if (el("apps-items").firstChild) el("apps-items").firstChild.focus();
+    };
+  });
   function launch(id, name) {
     if (id === "com.webos.app.inputpicker") {
       show("inputs");
@@ -205,16 +388,12 @@
     if (which === "movies")
       ids = ["youtube.leanback.v4", "com.webos.app.livetv"];
     if (which === "games") ids = ["com.webos.app.inputpicker"];
-    if (which === "apps") ids = state.order;
     if (which === "music")
       note =
         "Os aplicativos de música ainda não foram integrados neste piloto.";
     if (which === "house")
       note =
         "A página de câmeras está em preparação para webOS. Nenhuma configuração das suas câmeras foi importada para este aplicativo.";
-    if (which === "apps")
-      note =
-        "Esta é a seleção de atalhos do piloto. A descoberta automática dos demais aplicativos ainda não está disponível.";
     el("category-note").hidden = !note;
     el("category-note").textContent = note;
     renderTiles(el("category-items"), ids);
@@ -251,25 +430,6 @@
       host.appendChild(b);
     });
   }
-  function renderOrder(focusId) {
-    var host = el("order-items");
-    host.textContent = "";
-    state.order.forEach(function (id) {
-      var b = document.createElement("button");
-      b.textContent = item(id).name;
-      b.setAttribute("data-order", id);
-      b.addEventListener("click", finishOrder);
-      host.appendChild(b);
-    });
-    var target =
-      host.querySelector('[data-order="' + focusId + '"]') || host.firstChild;
-    if (target) target.focus();
-  }
-  function finishOrder() {
-    ordering = false;
-    el("order-editor").hidden = true;
-    el("order-option").focus();
-  }
   each(document.querySelectorAll("[data-page]"), function (b) {
     b.addEventListener("click", function () {
       show(b.getAttribute("data-page"));
@@ -294,9 +454,7 @@
         return;
       }
       if (action === "order") {
-        ordering = true;
-        el("order-editor").hidden = false;
-        renderOrder(state.order[0]);
+        show("favorites");
         return;
       }
       if (action === "brand")
@@ -349,8 +507,11 @@
       current = document.activeElement;
     if (code === 461 || code === 27) {
       e.preventDefault();
-      if (ordering) finishOrder();
-      else if (page !== "home") show("home");
+      if (movingId) {
+        var dropped = movingId;
+        movingId = null;
+        renderApps(dropped);
+      } else if (page !== "home") show("home");
       else toast("Use Home no controle para voltar à tela da LG.");
       return;
     }
@@ -361,16 +522,52 @@
     )
       return;
     e.preventDefault();
-    if (ordering) {
-      var id = current.getAttribute("data-order");
-      if (id && (code === 37 || code === 39)) {
-        save(model.move(state, id, code === 37 ? -1 : 1));
-        renderOrder(id);
-      } else if (code === 38) finishOrder();
+    if ((page === "apps" || page === "favorites") && movingId) {
+      save(
+        model.move(
+          state,
+          movingId,
+          code === 37 ? -1 : code === 39 ? 1 : code === 38 ? -3 : 3
+        )
+      );
+      appsOffset = Math.floor(state.order.indexOf(movingId) / 9) * 9;
+      renderApps(movingId);
       return;
     }
+    if (
+      (page === "apps" || page === "favorites") &&
+      current.parentNode.id === "apps-items"
+    ) {
+      var allIds = appIds(),
+        at = allIds.indexOf(current.getAttribute("data-id"));
+      var nextAt =
+        at + (code === 37 ? -1 : code === 39 ? 1 : code === 38 ? -3 : 3);
+      if (nextAt >= 0 && nextAt < allIds.length) {
+        appsOffset = Math.floor(nextAt / 9) * 9;
+        renderApps(allIds[nextAt]);
+        return;
+      }
+    }
     if (page === "home") {
+      if (
+        (code === 37 || code === 39) &&
+        current.parentNode.id === "shortcuts"
+      ) {
+        var pos =
+          state.order.indexOf(current.getAttribute("data-id")) +
+          (code === 37 ? -1 : 1);
+        if (pos >= 0 && pos < state.order.length) {
+          favoriteOffset = Math.floor(pos / 4) * 4;
+          renderFavorites();
+          el("shortcuts")
+            .querySelector('[data-id="' + state.order[pos] + '"]')
+            .focus();
+        }
+        return;
+      }
       if (code === 40 && current.parentNode.tagName === "NAV") {
+        favoriteOffset = 0;
+        renderFavorites();
         firstTile();
         return;
       }
@@ -451,6 +648,7 @@
     }
   }, 60000);
   show("home");
+  refreshApps(false);
   setTimeout(function () {
     el("splash").classList.add("fade");
     setTimeout(function () {

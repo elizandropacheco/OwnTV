@@ -81,3 +81,13 @@ Fotografias grandes e artes opcionais locais ficam fora do Git, com catálogos/c
 - `webos/tests/`: modelos de preferências, parsers RSS e limites de acesso HTTP.
 
 Dados reais de câmeras, tokens e chaves não fazem parte desses diretórios. A configuração da ponte fica fora do checkout; `config.example.json` contém somente exemplos substituíveis.
+
+## Favoritos no webOS
+
+- `webos/app/model.js`: migração de preferências, catálogo, seleção e ordem.
+- `webos/app/apps-discovery.js`: consulta SSAP à própria TV, com pareamento persistido no serviço.
+- `webos/app/app.js`: telas de apps/favoritos, paginação e foco do controle.
+- `webos/service/service.js`: isolamento e armazenamento privado do pareamento.
+- `webos/tests/apps-discovery.test.cjs`: respostas inválidas, chave revogada e restrição ao endereço da TV.
+
+As instruções para o usuário ficam em [LG-FAVORITOS.pt-BR.md](LG-FAVORITOS.pt-BR.md).

@@ -1,16 +1,16 @@
-# OwnTV para LG webOS — 0.2.0 experimental
+# OwnTV para LG webOS — 0.2.1 experimental
 
 Implementação separada do Android, com interface HTML/CSS/JavaScript para o Chromium 53 e serviço JavaScript compatível com Node 0.12.2 das LG de referência. O APK Android não roda em webOS.
 
 ![Home OwnTV webOS com notícias e sugestões](../docs/screenshots/webos-home.png)
 
-**Home físico ainda abre a LG. A lista completa para escolher apps favoritos não está implementada.** Consulte o [estado atual e as pendências](../docs/STATUS.pt-BR.md).
+**Favoritos com seleção dos apps da TV e ordenação estão implementados. Home físico ainda abre a LG.** Consulte o [estado atual e as pendências](../docs/STATUS.pt-BR.md).
 
 ## Recursos
 
 - Home aberta, identidade EP/OwnTV configurável, abertura animada, transparência e contornos em gradiente. Foco sem ampliar ou deslocar cards.
 - Quinze fundos da coleção Android em Full HD, alternância inicial de um minuto e escurecimento configurável.
-- Bloco Favoritos com quatro atalhos predefinidos: YouTube, TV ao vivo, Entradas e Personalizar. Cores/monocromático e ordem persistente; ainda não permite escolher outros apps instalados.
+- [Favoritos](../docs/LG-FAVORITOS.pt-BR.md): catálogo da própria TV por pareamento local, adicionar/remover com OK, ordenar com setas, ícones nativos coloridos/monocromáticos, nove apps por página e quatro favoritos completos por grupo na Home. Seleção e ordem persistem localmente, inclusive vazias.
 - Notícias reais em duas linhas abaixo do slogan, alternando a cada 12 segundos; página de notícias com fonte, tema, data e paginação. Temas iniciais: telecom, tecnologia e inteligência artificial. Configuração aceita até oito temas e permite desligar o recurso.
 - Sugestões do YouTube: quatro cards completos por página, miniatura, título, canal e data, na Home e na página Sugeridos. Os canais públicos são configuráveis. Os padrões incluem Elizandro Pacheco, Canaltech, TecMundo e OpenAI.
 - Câmeras: seis prévias por página em três colunas, navegação entre canais, vídeo principal ampliado, modo leve, pausa, áudio, preenchimento/ajuste e reconexão. Requer a [ponte privada](bridge/README.md) em um computador/servidor ligado.
@@ -29,10 +29,10 @@ As sugestões são vídeos públicos dos canais escolhidos, **não** recomendaç
 
 ## Instalar e atualizar
 
-Primeiro siga o [guia de conta LG, país, Developer Mode, chaves e conexão](../docs/LG-WEBOS.pt-BR.md). Baixe o IPK da [release webos-v0.2.0](https://github.com/elizandropacheco/OwnTV/releases/tag/webos-v0.2.0), confira SHA256SUMS e instale:
+Primeiro siga o [guia de conta LG, país, Developer Mode, chaves e conexão](../docs/LG-WEBOS.pt-BR.md). Baixe o IPK da [release webos-v0.2.1](https://github.com/elizandropacheco/OwnTV/releases/tag/webos-v0.2.1), confira SHA256SUMS e instale:
 
 ```sh
-ares-install --device lg-piloto io.elizandropacheco.owntv.webos_0.2.0_all.ipk
+ares-install --device lg-piloto io.elizandropacheco.owntv.webos_0.2.1_all.ipk
 ares-launch --device lg-piloto io.elizandropacheco.owntv.webos
 ```
 
@@ -51,7 +51,7 @@ python3 scripts/prepare-webos-assets.py
 ./scripts/build-webos.sh
 ```
 
-Para uma CLI instalada em outro caminho, use `OWNTV_ARES_PACKAGE=/caminho/ares-package`. O build executa verificações de arquivos públicos, sintaxe e testes de dados/preferências, empacota `webos/app/` e `webos/service/` e grava IPK, SHA256SUMS e build-info em `releases/webos/0.2.0/`. O binário é distribuído pela GitHub Release; o fonte permanece navegável, sem ZIP obrigatório.
+Para uma CLI instalada em outro caminho, use `OWNTV_ARES_PACKAGE=/caminho/ares-package`. O build executa verificações de arquivos públicos, sintaxe e testes de dados/preferências, empacota `webos/app/` e `webos/service/` e grava IPK, SHA256SUMS e build-info em `releases/webos/0.2.1/`. O binário é distribuído pela GitHub Release; o fonte permanece navegável, sem ZIP obrigatório.
 
 Verificações adicionais:
 
@@ -75,3 +75,7 @@ python3 scripts/check-public-assets.py
 Veja [validação e ressalvas](../docs/VALIDATION.md), [histórico](../CHANGELOG.md) e [hardware](../docs/LG-WEBOS.pt-BR.md#5-hardware-verificado).
 
 Desenvolvido por [Elizandro Pacheco](https://elizandropacheco.io/). [Siga no Instagram](https://www.instagram.com/elizandropacheco/), [inscreva-se no YouTube](https://www.youtube.com/@ElizandroPacheco) e [dê uma estrela no GitHub](https://github.com/elizandropacheco/OwnTV).
+
+## Escolher os apps da TV
+
+Abra **Editar favoritos** na Home ou **Apps → Escolher favoritos**. Na primeira configuração, use **Atualizar apps** e permita a conexão no aviso da LG. Depois marque com OK; em **Ordenar favoritos**, OK seleciona o item, setas movem e OK conclui. Veja [o guia completo](../docs/LG-FAVORITOS.pt-BR.md), incluindo segurança, migração e limites do botão Home.

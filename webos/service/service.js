@@ -237,7 +237,51 @@ service.register("bridge", function (message) {
 service.register("status", function (message) {
   message.respond({
     returnValue: true,
-    version: "0.2.0",
+    version: "0.2.1",
     runtime: process.version
   });
+});
+
+// Only this app can access its TV-local pairing. Never accept a caller-supplied host.
+var appsKeyFile = path.join(dataDir, "apps-pairing.json");
+service.register("appsConnection", function (message) {
+  if (!own(message)) return;
+  try {
+    var interfaces = require("os").networkInterfaces(),
+      hosts = [],
+      key = "";
+    Object.keys(interfaces).forEach(function (name) {
+      interfaces[name].forEach(function (a) {
+        if (
+          !a.internal &&
+          (a.family === "IPv4" || a.family === 4) &&
+          a.address.indexOf("169.254.") !== 0
+        )
+          hosts.push(a.address);
+      });
+    });
+    try {
+      key = JSON.parse(fs.readFileSync(appsKeyFile, "utf8")).key || "";
+    } catch (_) {}
+    message.respond({ returnValue: true, hosts: hosts, key: key });
+  } catch (_) {
+    fail(message, "Não foi possível consultar a rede desta TV.");
+  }
+});
+service.register("setAppsKey", function (message) {
+  if (!own(message)) return;
+  var key = message.payload.key;
+  if (typeof key !== "string" || !/^[A-Za-z0-9_-]{8,256}$/.test(key)) {
+    fail(message, "Pareamento inválido.");
+    return;
+  }
+  try {
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, 448);
+    fs.chmodSync(dataDir, 448);
+    fs.writeFileSync(appsKeyFile, JSON.stringify({ key: key }), { mode: 384 });
+    fs.chmodSync(appsKeyFile, 384);
+    message.respond({ returnValue: true });
+  } catch (_) {
+    fail(message, "Não foi possível salvar o pareamento.");
+  }
 });
