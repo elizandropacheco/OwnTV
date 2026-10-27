@@ -6,7 +6,7 @@ Home inspirada na versão Android, quinze fundos, identidade configurável, favo
 
 ## Validação de 27/10/2026
 
-Seis LG 43LM631C0SB, firmware 05.40.97 e SDK 4.10.0. Todas receberam o mesmo pacote e abriram o OwnTV. Em cada unidade, 16 verificações automatizadas passaram no motor real da TV, sem erros de JavaScript observados: Home, recursos, limites dos botões, navegação vertical, configurações, persistência, quatro controles de entrada preenchimento translúcido e camada de abertura acima dos cards. Foram capturadas as seis telas reais.
+Seis LG 43LM631C0SB, firmware 05.40.97 e SDK 4.10.0. Todas receberam o mesmo pacote e abriram o OwnTV. Em cada unidade, 16 verificações automatizadas passaram no motor real da TV, sem erros de JavaScript observados: Home, recursos, limites dos botões, navegação vertical, configurações, persistência, quatro controles de entrada preenchimento translúcido e camada de abertura acima dos cards. Foram capturadas as seis telas reais. A rotação permaneceu ativada nas seis e foi observada durante um ciclo real de 65 segundos: todas mudaram de fotografia automaticamente.
 
 Os comandos HDMI 1, 2, 3 e Central de entradas foram conferidos separadamente. Aceitação de um comando pelo sistema não certifica sinal, áudio, resolução ou HDCP de um equipamento HDMI. Os testes de navegação usam eventos sintetizados pelo depurador; a operação completa com controle físico ainda precisa de conferência humana.
 

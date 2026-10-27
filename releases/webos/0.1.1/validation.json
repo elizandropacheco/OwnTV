@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-27",
+  "model": "43LM631C0SB",
+  "firmware": "05.40.97",
+  "sdk": "4.10.0",
+  "unitsTested": 6,
+  "interfaceChecksPerUnit": 16,
+  "interfaceChecksPassed": 96,
+  "javascriptErrorsObserved": 0,
+  "realWallpaperCycle": {
+    "observationSeconds": 65,
+    "passedUnits": 6
+  },
+  "inputCommands": {
+    "hdmi1Accepted": 6,
+    "hdmi2Accepted": 6,
+    "hdmi3Accepted": 6,
+    "homeConnectAccepted": 6
+  },
+  "limitations": [
+    "Synthetic navigation events; full physical-remote review remains manual.",
+    "Input launch acceptance does not certify HDMI signal or HDCP.",
+    "No root, extra system user, permanent SSH or Home replacement.",
+    "Network time enabled; NTP queries denied by firmware."
+  ]
+}

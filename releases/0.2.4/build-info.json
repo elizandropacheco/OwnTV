@@ -3,10 +3,10 @@
   "applicationId": "io.elizandropacheco.tv",
   "versionName": "0.2.4",
   "versionCode": 105,
-  "sourceCommit": "26e0c8a3703b30afeeb287d3ea905f4fb24f3e69",
-  "sourceDirty": true,
-  "buildStartedAtUtc": "2026-10-27T18:34:55+00:00",
-  "buildFinishedAtUtc": "2026-10-27T18:36:03+00:00",
+  "sourceCommit": "a0b79eac610e8c34caabfa9ceb6bd4529e664fe4",
+  "sourceDirty": false,
+  "buildStartedAtUtc": "2026-10-27T18:38:43+00:00",
+  "buildFinishedAtUtc": "2026-10-27T18:38:49+00:00",
   "buildType": "release",
   "debuggable": false,
   "validation": {
@@ -33,6 +33,6 @@
   "artifact": {
     "file": "OwnTV-0.2.4.apk",
     "bytes": 195767489,
-    "sha256": "68fff9693ed94d3b62f91189b47ab43c5955dd5fe4b1c539e2d0f8ea70caa22f"
+    "sha256": "035043bccd814d3229edbe6de7c13cd0bc12d0328af485d4db5d8c4d4bf340f3"
   }
 }

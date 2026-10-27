@@ -128,7 +128,7 @@ A implementação inicial segue a composição Android, com limites descritos no
 
 ## Relógio, acesso e versão do sistema — conferência de 27/10/2026
 
-Nas seis unidades, `useNetworkTime=true`, `useNetworkTimeZone=true`, fuso `America/Sao_Paulo` (UTC−03) e `timeValid=true`. Os relógios ficaram a poucos segundos do Mac durante a leitura. O sistema informou fonte `sdp`; isso confirma a configuração automática e o horário observado, mas **não identifica um servidor NTP nem comprova uma sessão NTP**. A API de configurações gerais negou acesso ao usuário de desenvolvimento. Não foi instalado ou alterado um daemon de horário.
+Nas seis unidades, `useNetworkTime=true`, `useNetworkTimeZone=true`, fuso `America/Sao_Paulo` (UTC−03) e `timeValid=true`. Os relógios ficaram a poucos segundos do Mac durante a leitura. O sistema informou fonte `sdp`; isso confirma a configuração automática e o horário observado, mas **não identifica um servidor NTP nem comprova uma sessão NTP**. A API de configurações gerais negou acesso ao usuário de desenvolvimento. A consulta `time/getNTPTime` retornou `NTP requests are prohibited at the moment` nas seis TVs. Não foi instalado ou alterado um daemon de horário.
 
 Todas permitem SSH com shell BusyBox como `prisoner`, pela porta 9922 e chave individual do Developer Mode. O usuário não é root, não pode escrever no cadastro de contas e não disponibiliza `adduser`/`useradd` nesse ambiente. **Não foi criado um usuário adicional**: contas de sistema e persistência dependem de privilégios que não estão disponíveis. Um serviço com nome alternativo dentro do aplicativo não equivaleria a uma conta independente do sistema.
 
