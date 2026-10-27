@@ -1,5 +1,11 @@
 # Alterações
 
+## Não lançado
+
+- Documentação LG: conta Developer, erro de região Brasil/EUA, ativação, CLI/SSH, expiração e diagnóstico.
+- Hardware e acesso de desenvolvedor verificados em seis LG 43LM631C0SB; root, Home e port webOS permanecem não validados.
+- README em português/inglês atualizado e manutenção da documentação incluída no fluxo de contribuição.
+
 ## 0.2.3
 
 - Código em árvore aberta, com mapa de responsabilidades e instruções completas de build, assinatura e publicação.

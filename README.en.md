@@ -32,6 +32,8 @@ Advertising inside streaming services remains controlled by those apps. YouTube 
 
 Tested on TCL Android TV 14. LG/webOS needs a separate implementation and is planned rather than supported by this APK.
 
+See the [LG Developer account, country selection, Developer Mode, SSH and hardware guide](docs/LG-WEBOS.pt-BR.md) (Portuguese). Developer SSH was verified on six LG 43LM631C0SB units on 2026-10-27 (firmware 05.40.97, SDK 4.10.0). Root, persistent SSH and Home replacement remain unverified; no OwnTV webOS package is released.
+
 Use JDK 21, Android SDK 34 and Build Tools 35.0.0:
 
 ```sh
@@ -84,7 +86,7 @@ The [complete Portuguese guide](docs/INSTALLATION.pt-BR.md) covers APK downloads
 
 ## Follow and support
 
-By [Elizandro Pacheco](https://elizandropacheco.io/). Follow on [Instagram](https://www.instagram.com/elizandropacheco/), subscribe on [YouTube](https://www.youtube.com/@ElizandroPacheco) for more technology content, and [star OwnTV on GitHub](https://github.com/elizandropacheco/OwnTV). See the [vector brand assets](docs/BRANDING.md).
+By [Elizandro Pacheco](https://elizandropacheco.io/). Follow on [Instagram](https://www.instagram.com/elizandropacheco/), subscribe on [YouTube](https://www.youtube.com/@ElizandroPacheco) for more technology content, and [star OwnTV on GitHub](https://github.com/elizandropacheco/OwnTV). See the [branding and rendered assets](docs/BRANDING.md).
 
 The default identity uses Elizandro Pacheco’s EP logo. **Identidade visual e logo** offers EP, the OwnTV monogram, or a local/USB PNG/JPEG/WebP for the Home, native menus and startup animation. The installed app icon retains EP. Menu Down selects the first favorite; Favorites Up selects Cameras, then PS5, then the top menu. Recommendation captions include source/channel and duration when available, with public YouTube author lookup cached in the background.
 

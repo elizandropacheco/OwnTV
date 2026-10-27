@@ -30,6 +30,8 @@ A identidade EP usa fundo `#030B12`, azul `#0084FE`, verde `#2CEB43`, linhas geo
 
 Validado em uma TCL com Android TV 14. Os atalhos específicos da TCL dependem do firmware e da entrada HDMI. O OwnTV é um launcher Android: uma versão para LG/webOS exige outra implementação e está no roteiro, não faz parte deste APK.
 
+**LG/webOS:** consulte o [guia de conta LG Developer, correção de país no login, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md). Em 27/10/2026, o acesso SSH de desenvolvedor e as versões foram verificados em seis LG 43LM631C0SB (firmware 05.40.97, SDK 4.10.0). Root, SSH permanente e troca da Home ainda não foram validados; não há pacote OwnTV webOS nesta entrega.
+
 Os arquivos dos wallpapers mantêm a resolução original. A resolução da interface é determinada pelo Android e pode ser inferior à resolução física do painel. O launcher adapta a decodificação à interface para evitar consumo desnecessário de memória.
 
 ## Instalar

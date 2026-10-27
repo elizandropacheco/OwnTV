@@ -26,6 +26,13 @@ Após a limpeza do histórico dos logos, use um clone novo. Não mescle branches
 
 O namespace `com.conreo.couchytv` preserva a base e difere do `applicationId` OwnTV. As receitas F-Droid em `docs/upstream/` são referência histórica Couchy, não uma publicação atual do OwnTV.
 
+## Documentação em cada entrega
+
+- Atualize o README principal a cada mudança de funcionalidade, compatibilidade, instalação ou estado de validação; mantenha o resumo em inglês coerente.
+- Atualize o guia correspondente e o CHANGELOG no mesmo conjunto de alterações. Instruções de conta de desenvolvedor, pareamento e problemas conhecidos fazem parte da entrega.
+- Para LG, mantenha [conta, Developer Mode e diagnóstico](docs/LG-WEBOS.pt-BR.md) com data, modelos/versões testados e limites conhecidos. Não apresente root ou Home como disponíveis antes de validar.
+- Use exemplos sem dados reais, sem fotos com códigos de acesso e sem originais de logos. Confira os links locais e execute a verificação de recursos públicos antes de publicar.
+
 ## Validação
 
 ```sh

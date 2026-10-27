@@ -2,6 +2,8 @@
 
 Este guia usa Android TV/Google TV. Os nomes dos menus variam entre fabricantes e versões. A instalação foi validada em uma TCL com Android TV 14. Não exige root, troca de firmware ou remoção do launcher original.
 
+Para LG/webOS, use o [guia específico de conta de desenvolvedor e acesso à TV](LG-WEBOS.pt-BR.md). Os comandos ADB e o APK deste guia são exclusivos do Android.
+
 ## 1. Obter o APK
 
 Baixe o APK e o arquivo SHA-256 em [Releases](https://github.com/elizandropacheco/OwnTV/releases). Se não houver uma versão para seu aparelho, [compile o código](../README.md#compilar). O identificador do OwnTV é `io.elizandropacheco.tv`.
