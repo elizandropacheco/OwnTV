@@ -7,7 +7,7 @@
 [![License: GPL v3](https://img.shields.io/badge/license-GPLv3-blue.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Android%20TV-2CEB43)](#compatibilidade)
 [![Validação local](https://img.shields.io/badge/build-verificado_localmente-2CEB43)](docs/VALIDATION.md)
-[![Version](https://img.shields.io/badge/version-0.2.3-0084FE)](https://github.com/elizandropacheco/OwnTV)
+[![Version](https://img.shields.io/badge/version-0.2.4-0084FE)](https://github.com/elizandropacheco/OwnTV)
 
 [English](README.en.md) · [Desenvolvedor](https://elizandropacheco.io/) · [Código](https://github.com/elizandropacheco/OwnTV)
 
@@ -18,6 +18,7 @@ OwnTV transforma a tela inicial em um espaço organizado para seus aplicativos, 
 - **Home sem publicidade:** sem banners patrocinados, serviços de anúncios ou feed comercial do launcher.
 - **Personalização real:** favoritos, ordem, categorias, aplicativos ocultos, cards, títulos, ações, imagens, enquadramento e transparência.
 - **Foco estável e leveza:** imagens decodificadas para a resolução útil da interface, carregamento em segundo plano, listas de conteúdo sob demanda e transições curtas de cor. A velocidade depende do hardware; o projeto não promete um ganho percentual sem medição.
+- **Entradas na Home:** botão fixo no rodapé abre o seletor HDMI/dispositivos no Android e no piloto webOS.
 - **Central de jogos:** PS5 por HDMI configurável, Game Master, ajustes de imagem, entradas e orientação para 120 Hz/120 FPS.
 - **Casa conectada:** mosaico de câmeras com rolagem, foco pelo controle, imagem ampliada pelo fluxo principal e atalhos para aplicativos Intelbras e iCSee.
 - **Paisagens offline:** coleção inicial de 15 fotos acima de 4K, catálogo de 100 fotos, rotação, downloads diários e créditos completos.
@@ -28,9 +29,9 @@ A identidade EP usa fundo `#030B12`, azul `#0084FE`, verde `#2CEB43`, linhas geo
 
 ## Compatibilidade
 
-Validado em uma TCL com Android TV 14. Os atalhos específicos da TCL dependem do firmware e da entrada HDMI. O OwnTV é um launcher Android: uma versão para LG/webOS exige outra implementação e está no roteiro, não faz parte deste APK.
+Validado em uma TCL com Android TV 14. Os atalhos específicos da TCL dependem do firmware e da entrada HDMI. O OwnTV é um launcher Android: a implementação LG/webOS é separada e não faz parte deste APK.
 
-**LG/webOS:** consulte o [guia de conta LG Developer, correção de país no login, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md). Em 27/10/2026, o acesso SSH de desenvolvedor e as versões foram verificados em seis LG 43LM631C0SB (firmware 05.40.97, SDK 4.10.0). Root, SSH permanente e troca da Home ainda não foram validados; não há pacote OwnTV webOS nesta entrega.
+**LG/webOS:** há um [piloto separado 0.1.1](webos/README.md), com Home no estilo Android, fundos, menus, personalização e atalhos. Não possui todas as funções Android nem substitui a Home LG. Consulte [conta LG Developer, correção de país, Developer Mode, SSH e hardware](docs/LG-WEBOS.pt-BR.md). O acesso de desenvolvedor foi verificado em seis LG 43LM631C0SB; o piloto foi instalado e teve interface e navegação verificadas nas seis unidades. Root e SSH permanente permanecem não validados. Navegador e abertura de URLs estão fora do escopo. As seis usam relógio automático no fuso de São Paulo e SSH restrito com shell; usuário SSH extra não foi criado por falta de privilégios. Confira [horário, acesso e versão do sistema](docs/LG-WEBOS.pt-BR.md#relógio-acesso-e-versão-do-sistema--conferência-de-27102026).
 
 Os arquivos dos wallpapers mantêm a resolução original. A resolução da interface é determinada pelo Android e pode ser inferior à resolução física do painel. O launcher adapta a decodificação à interface para evitar consumo desnecessário de memória.
 
@@ -44,7 +45,7 @@ Os arquivos dos wallpapers mantêm a resolução original. A resolução da inte
 
 ```sh
 adb connect TV_IP:PORTA_ADB
-adb install -r OwnTV-0.2.3.apk
+adb install -r OwnTV-0.2.4.apk
 adb shell am start -n io.elizandropacheco.tv/com.conreo.couchytv.MainActivity
 ```
 

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "applicationId": "io.elizandropacheco.tv",
+  "versionName": "0.2.4",
+  "versionCode": 105,
+  "sourceCommit": "26e0c8a3703b30afeeb287d3ea905f4fb24f3e69",
+  "sourceDirty": true,
+  "buildStartedAtUtc": "2026-10-27T18:34:55+00:00",
+  "buildFinishedAtUtc": "2026-10-27T18:36:03+00:00",
+  "buildType": "release",
+  "debuggable": false,
+  "validation": {
+    "assembleRelease": "passed",
+    "lintRelease": "passed",
+    "apkManifest": "passed"
+  },
+  "signing": {
+    "signed": true,
+    "mode": "local-debug-key",
+    "verification": "passed",
+    "certificateSha256": [
+      "7212f122aae6c8299ac78f84e9de7a7bd0b54b21af0716f3289f85c4c76d6c6c"
+    ]
+  },
+  "android": {
+    "minSdk": 26,
+    "targetSdk": 34,
+    "compileSdk": 34,
+    "buildTools": "35.0.0"
+  },
+  "bundledWallpapers": 15,
+  "optionalGameArtwork": true,
+  "artifact": {
+    "file": "OwnTV-0.2.4.apk",
+    "bytes": 195767489,
+    "sha256": "68fff9693ed94d3b62f91189b47ab43c5955dd5fe4b1c539e2d0f8ea70caa22f"
+  }
+}

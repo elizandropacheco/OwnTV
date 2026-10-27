@@ -12,14 +12,14 @@ Compare a soma do arquivo baixado com o SHA-256 da versão:
 
 ```sh
 # macOS
-shasum -a 256 OwnTV-0.2.3.apk
+shasum -a 256 OwnTV-0.2.4.apk
 # Linux
-sha256sum OwnTV-0.2.3.apk
+sha256sum OwnTV-0.2.4.apk
 ```
 
 ```powershell
 # Windows PowerShell
-Get-FileHash .\OwnTV-0.2.3.apk -Algorithm SHA256
+Get-FileHash .\OwnTV-0.2.4.apk -Algorithm SHA256
 ```
 
 Para atualizar uma instalação existente, preserve a chave de assinatura. A versão disponibilizada neste projeto usa uma assinatura local; uma compilação própria com outra chave não atualiza essa instalação. Não desinstale para contornar esse erro sem antes planejar a perda dos dados locais e das credenciais do DVR.
@@ -90,7 +90,7 @@ Referências: [ADB](https://developer.android.com/tools/adb) e [conectar disposi
 Com apenas uma TV conectada:
 
 ```sh
-adb install -r OwnTV-0.2.3.apk
+adb install -r OwnTV-0.2.4.apk
 adb shell am start -n io.elizandropacheco.tv/com.conreo.couchytv.MainActivity
 adb shell pm grant io.elizandropacheco.tv android.permission.READ_TV_LISTINGS
 ```

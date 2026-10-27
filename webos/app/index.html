@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1920, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' file:; style-src 'self' file:; img-src 'self' file: data:; connect-src 'none'; object-src 'none'; frame-src 'none'; base-uri 'none'"
+    />
+    <title>OwnTV</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <div id="wallpaper"></div>
+      <div id="shade"></div>
+      <div id="accents"></div>
+      <header>
+        <div class="identity">
+          <img id="brand" src="assets/ep.png" alt="Elizandro Pacheco" /><span
+            >OwnTV</span
+          >
+        </div>
+        <nav>
+          <button id="home-nav" data-page="home">Início</button
+          ><button data-page="movies">Filmes</button
+          ><button data-page="music">Música</button
+          ><button data-page="games">Jogos</button
+          ><button data-page="house">Casa</button
+          ><button data-page="apps">Todos os apps</button>
+        </nav>
+        <div class="clock">
+          <strong id="time"></strong><span id="date"></span>
+        </div>
+      </header>
+      <main id="home" class="page">
+        <div class="home-layout">
+          <section class="hero">
+            <div class="eyebrow">ENTRETENIMENTO · JOGOS · CASA</div>
+            <h1>Seu universo.<br />Do seu jeito.</h1>
+            <p>
+              Seus aplicativos e dispositivos.<br />Uma tela inicial com a sua
+              identidade.
+            </p>
+          </section>
+          <div class="feature-cards">
+            <button id="games-card" class="feature game" data-action="console">
+              <img src="assets/playstation.svg" alt="" /><span
+                ><strong>Jogos e consoles</strong
+                ><small id="console-caption"
+                  >Escolha sua entrada HDMI</small
+                ></span
+              ></button
+            ><button id="camera-card" class="feature cameras" data-page="house">
+              <img class="camera-art" src="assets/cameras.png" alt="" /><span
+                ><strong>Câmeras</strong
+                ><small>Conheça o estado da integração</small></span
+              >
+            </button>
+          </div>
+        </div>
+        <section class="favorites">
+          <div class="section-label">
+            <h2>Favoritos</h2>
+            <span>← → escolher · OK abrir</span>
+          </div>
+          <div id="shortcuts" class="tiles"></div>
+        </section>
+      </main>
+      <section id="category" class="page" hidden>
+        <div class="section-label">
+          <h1 id="category-title"></h1>
+          <button data-page="settings">Personalizar</button>
+        </div>
+        <p id="category-description" class="intro"></p>
+        <div id="category-items" class="tiles"></div>
+        <div id="category-note" class="notice" hidden></div>
+      </section>
+      <section id="settings" class="page" hidden>
+        <div class="section-label">
+          <h1>Configurações</h1>
+          <button data-page="home">Voltar ao início</button>
+        </div>
+        <p class="intro">Personalize sua central.</p>
+        <div class="settings-grid">
+          <button id="brand-option" data-action="brand">
+            <span class="setting-icon">EP</span
+            ><strong>Identidade visual</strong
+            ><small id="brand-value"></small></button
+          ><button id="color-option" data-action="colors">
+            <span class="setting-icon"
+              ><img src="assets/colors.svg" alt="" /></span
+            ><strong>Ícones dos favoritos</strong
+            ><small id="color-value"></small></button
+          ><button id="order-option" data-action="order">
+            <span class="setting-icon"
+              ><img src="assets/order.svg" alt="" /></span
+            ><strong>Ordem dos favoritos</strong
+            ><small>Mover antes ou depois</small>
+          </button>
+          <button data-action="wallpaper">
+            <span class="setting-icon"
+              ><img src="assets/photo.svg" alt="" /></span
+            ><strong>Fundos EP</strong
+            ><small id="wallpaper-value"></small></button
+          ><button data-action="dim">
+            <span class="setting-icon"><img src="assets/dim.svg" alt="" /></span
+            ><strong>Escurecimento</strong
+            ><small id="dim-value"></small></button
+          ><button data-action="rotate">
+            <span class="setting-icon"
+              ><img src="assets/rotate.svg" alt="" /></span
+            ><strong>Alternar fundos</strong><small id="rotate-value"></small>
+          </button>
+          <button data-action="hdmi">
+            <span class="setting-icon"
+              ><img src="assets/input.svg" alt="" /></span
+            ><strong>HDMI dos jogos</strong
+            ><small id="hdmi-value"></small></button
+          ><button data-action="effects">
+            <span class="setting-icon"
+              ><img src="assets/effects.svg" alt="" /></span
+            ><strong>Efeitos de foco</strong
+            ><small id="effects-value"></small></button
+          ><button data-page="about">
+            <span class="setting-icon"
+              ><img src="assets/info.svg" alt="" /></span
+            ><strong>Sobre o OwnTV</strong
+            ><small>Versão, créditos e suporte</small>
+          </button>
+        </div>
+        <div id="order-editor" class="notice" hidden>
+          <h2>Organizar favoritos</h2>
+          <p>Escolha um item e use ← ou → para movê-lo. OK conclui.</p>
+          <div id="order-items"></div>
+        </div>
+        <p id="photo-credit" class="photo-credit"></p>
+      </section>
+      <section id="about" class="page" hidden>
+        <div class="section-label">
+          <h1>Sobre o OwnTV</h1>
+          <button data-page="settings">Voltar</button>
+        </div>
+        <div class="about-panel">
+          <img src="assets/ep.png" alt="Elizandro Pacheco" />
+          <div>
+            <h2>Sua TV. Suas regras.</h2>
+            <p>Desenvolvido por Elizandro Pacheco</p>
+            <p>elizandropacheco.io</p>
+            <p>
+              Siga @ElizandroPacheco no Instagram e inscreva-se no YouTube.<br />Apoie
+              o projeto com uma estrela no GitHub.
+            </p>
+            <p class="muted">
+              webOS · piloto 0.1.1<br />Interface, fundos, personalização e
+              atalhos. Câmeras, notícias e sugestões ainda não estão
+              disponíveis. O botão Home continua abrindo a tela da LG.
+            </p>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <span>OwnTV <small>· piloto LG</small></span
+        ><button data-page="inputs">Entradas</button
+        ><button data-page="settings">Personalizar apps</button
+        ><button data-action="games-settings">Cards e jogos</button
+        ><button data-page="settings">Configurações</button
+        ><button data-page="about">Sobre</button>
+      </footer>
+      <div id="toast" role="status" hidden></div>
+      <div id="splash">
+        <img src="assets/ep.png" alt="OwnTV por Elizandro Pacheco" />
+      </div>
+    </div>
+    <script src="vendor/webOSTV-dev.js"></script>
+    <script src="wallpapers.js"></script>
+    <script src="model.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

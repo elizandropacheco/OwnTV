@@ -1,9 +1,16 @@
 # Alterações
 
-## Não lançado
+## 0.2.4 Android / 0.1.1 webOS — 2026-10-27
+
+- Android: botão Entradas no rodapé abre o seletor existente da TV.
+- webOS: rotação automática de fundos a cada minuto e abertura com logo acima de todas as camadas.
+- webOS: transparência real dos cards, bordas independentes e seletor HDMI 1–3/Central LG acessível na Home.
+- Piloto webOS 0.1.1: composição baseada no Android, quinze fundos Full HD, menus, cards, foco estável, cores, identidade e ordenação de favoritos.
+- Build IPK separado e testes de preferências; corrigido carregamento de recursos locais no Chromium 53.
+- Navegador e opções de URL retirados do escopo a pedido do usuário; câmeras, notícias, sugestões e substituição da Home permanecem pendentes no webOS.
 
 - Documentação LG: conta Developer, erro de região Brasil/EUA, ativação, CLI/SSH, expiração e diagnóstico.
-- Hardware e acesso de desenvolvedor verificados em seis LG 43LM631C0SB; root, Home e port webOS permanecem não validados.
+- Hardware, instalação do piloto e navegação verificados nas seis LG 43LM631C0SB; root, Home e SSH permanente não foram implementados.
 - README em português/inglês atualizado e manutenção da documentação incluída no fluxo de contribuição.
 
 ## 0.2.3

@@ -1,6 +1,6 @@
 # LG webOS: conta, Developer Mode e diagnóstico
 
-Atualizado em **27/10/2026**. Este guia prepara uma LG para desenvolvimento e registra os testes realizados. O APK OwnTV é Android e não funciona no webOS; ainda não há pacote OwnTV para LG nesta entrega.
+Atualizado em **27/10/2026**. Este guia prepara uma LG para desenvolvimento e registra os testes realizados. O APK OwnTV é Android e não funciona no webOS; o [piloto webOS](../webos/README.md) usa um pacote IPK separado.
 
 ## Estado do suporte
 
@@ -11,7 +11,7 @@ Atualizado em **27/10/2026**. Este guia prepara uma LG para desenvolvimento e re
 | Hardware e firmware | Consultados diretamente nos aparelhos; resumo abaixo |
 | Root e SSH persistente após expiração do modo dev | Não aplicados nem validados |
 | Substituição da Home LG | Não implementada nem validada |
-| OwnTV para webOS | Exige implementação própria; o APK Android não é instalável |
+| OwnTV para webOS | Piloto 0.1.1 de interface, fundos e atalhos; veja o [registro de validação](../releases/webos/0.1.1/README.md). O APK Android não é instalável |
 
 ## 1. Conta de desenvolvedor
 
@@ -121,3 +121,17 @@ Há métodos comunitários como [faultmanager-autoroot](https://github.com/throw
 Não publique fotos da tela Developer Mode com Passphrase, chaves SSH, IPs/MACs reais, contas LG, logs privados, configurações ou imagens de câmeras. Use nomes e endereços substituíveis nos exemplos. Guarde material de acesso fora do repositório e restrinja suas permissões locais.
 
 Mantenha o [README](../README.md#compatibilidade), este guia e o [changelog](../CHANGELOG.md) alinhados a cada mudança. Separe sempre o que foi testado, o que é instrução oficial e o que permanece uma proposta. Veja também a [instalação Android](INSTALLATION.pt-BR.md).
+
+## Piloto visual e navegador
+
+A implementação inicial segue a composição Android, com limites descritos no [guia do piloto](../webos/README.md). O navegador LG abriu o site solicitado, mas a renderização foi relatada como quebrada. Navegador, URL inicial, execução automática de páginas e tela cheia web foram retirados do escopo por solicitação do usuário. A [LG documenta Chromium 53 para webOS 4.x](https://webostv.developer.lge.com/develop/specifications/web-api-and-web-engine); não se presume compatibilidade com sites modernos.
+
+## Relógio, acesso e versão do sistema — conferência de 27/10/2026
+
+Nas seis unidades, `useNetworkTime=true`, `useNetworkTimeZone=true`, fuso `America/Sao_Paulo` (UTC−03) e `timeValid=true`. Os relógios ficaram a poucos segundos do Mac durante a leitura. O sistema informou fonte `sdp`; isso confirma a configuração automática e o horário observado, mas **não identifica um servidor NTP nem comprova uma sessão NTP**. A API de configurações gerais negou acesso ao usuário de desenvolvimento. Não foi instalado ou alterado um daemon de horário.
+
+Todas permitem SSH com shell BusyBox como `prisoner`, pela porta 9922 e chave individual do Developer Mode. O usuário não é root, não pode escrever no cadastro de contas e não disponibiliza `adduser`/`useradd` nesse ambiente. **Não foi criado um usuário adicional**: contas de sistema e persistência dependem de privilégios que não estão disponíveis. Um serviço com nome alternativo dentro do aplicativo não equivaleria a uma conta independente do sistema.
+
+O firmware lido nas seis é **05.40.97**. A [página oficial LG de firmware desta família](https://www.lg.com/ar/soporte/producto/lg-43LM6300PSB.KWNYLWK), cuja lista inclui explicitamente 43LM631C0SB, oferece 05.40.97 com data de 07/07/2025. É a versão pública mais recente encontrada nessa página; não foi executada atualização de firmware nem confirmado um canal OTA diferente para cada unidade.
+
+Android no processador ARM seria tecnicamente concebível mediante port específico, mas não foi encontrada uma imagem Android para esta placa LG. Bootloader, kernel, drivers e HALs precisam corresponder ao hardware; root em webOS não fornece isso. Veja a [arquitetura AOSP](https://source.android.com/docs/core/architecture). Um equipamento Android externo por HDMI permite usar a versão Android do OwnTV sem trocar o sistema interno da TV.

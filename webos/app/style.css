@@ -1,0 +1,584 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #030b12;
+  color: #f2f7fa;
+  font-family: Arial, Helvetica, sans-serif;
+}
+[hidden] {
+  display: none !important;
+}
+#stage {
+  width: 1920px;
+  height: 1080px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+  padding: 28px 64px;
+}
+#wallpaper,
+#shade,
+#accents {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+#wallpaper {
+  background-position: center;
+  background-size: cover;
+}
+#shade {
+  background: linear-gradient(
+    180deg,
+    rgba(3, 11, 18, 0.65),
+    rgba(3, 11, 18, 0.35),
+    rgba(3, 11, 18, 0.92)
+  );
+}
+#accents {
+  background: url(assets/accent-lines.svg) center/cover no-repeat;
+}
+header,
+.page,
+footer {
+  position: relative;
+}
+header {
+  height: 94px;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(90deg, rgba(12, 29, 41, 0.86), rgba(3, 11, 18, 0.76))
+      padding-box,
+    linear-gradient(
+        120deg,
+        rgba(0, 132, 254, 0.28),
+        rgba(3, 11, 18, 0.1),
+        rgba(44, 235, 67, 0.16)
+      )
+      border-box;
+}
+.identity {
+  display: flex;
+  align-items: center;
+  width: 220px;
+  font-size: 27px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+.identity img {
+  width: 98px;
+  height: 62px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 18px;
+  background: rgba(10, 27, 40, 0.9);
+  padding: 20px 26px;
+  outline: none;
+  transition:
+    background-color 0.12s,
+    border-color 0.12s;
+}
+button:focus {
+  border-color: #19b7c5;
+  background-color: #153747;
+  box-shadow: 0 0 0 2px #2ceb43;
+}
+nav button {
+  font-size: 26px;
+  margin-right: 7px;
+  padding: 16px 18px;
+  background: transparent;
+  color: #bdcdd7;
+  white-space: nowrap;
+}
+nav button.selected {
+  color: #fff;
+  background:
+    linear-gradient(#0c2634, #0c2634) padding-box,
+    linear-gradient(120deg, #0084fe, #25864a) border-box;
+  border-color: transparent;
+}
+.clock {
+  text-align: right;
+  min-width: 205px;
+}
+.clock strong {
+  display: block;
+  font-size: 32px;
+}
+.clock span {
+  display: block;
+  font-size: 19px;
+  color: #bfd1dc;
+  margin-top: 5px;
+}
+.home-layout {
+  height: 448px;
+  margin: 40px 24px 10px;
+  display: flex;
+  align-items: center;
+}
+.hero {
+  flex: 1;
+  padding-left: 10px;
+}
+.eyebrow {
+  font-size: 20px;
+  color: #2ceb43;
+  font-weight: bold;
+}
+h1 {
+  font-size: 68px;
+  line-height: 1.16;
+  margin: 24px 0 30px;
+  letter-spacing: -1px;
+}
+p {
+  font-size: 25px;
+  line-height: 1.5;
+  color: #bdcdd7;
+}
+.hero p {
+  margin: 24px 0 0;
+}
+.feature-cards {
+  width: 690px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 42px;
+  height: 414px;
+  justify-content: space-between;
+}
+.feature {
+  height: 184px;
+  width: 100%;
+  padding: 25px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 23px;
+  background:
+    linear-gradient(#06131d, #06131d) padding-box,
+    linear-gradient(120deg, rgba(0, 132, 254, 0.5), rgba(44, 235, 67, 0.24))
+      border-box;
+}
+.feature > span {
+  position: relative;
+  display: block;
+  padding-top: 40px;
+}
+.feature strong {
+  display: block;
+  font-size: 32px;
+}
+.feature small {
+  display: block;
+  font-size: 21px;
+  color: #b7cbd7;
+  margin-top: 10px;
+}
+.feature.game {
+  background:
+    linear-gradient(105deg, #07101b 30%, #0a293b 75%, #163c39) padding-box,
+    linear-gradient(120deg, #124c7f, #246839) border-box;
+}
+.feature.game img {
+  position: absolute;
+  right: 38px;
+  top: 10px;
+  width: 200px;
+  height: 150px;
+  opacity: 0.55;
+  filter: brightness(0) invert(1);
+}
+.feature.cameras {
+  background:
+    linear-gradient(90deg, rgba(3, 11, 18, 0.95) 15%, rgba(3, 11, 18, 0.25)),
+    url(assets/cameras.png) center/cover no-repeat;
+  background-clip: padding-box;
+  border-color: #15404a;
+}
+.feature:focus {
+  border-color: #25c3ce;
+  box-shadow: 0 0 0 2px #2ceb43;
+}
+.favorites {
+  margin: 0 24px;
+}
+.section-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h2 {
+  font-size: 29px;
+  margin: 25px 0;
+  font-weight: 600;
+}
+.section-label > span {
+  color: #b0c4cf;
+  font-size: 20px;
+}
+.tiles {
+  display: flex;
+  padding: 10px 2px;
+}
+.tile {
+  width: 407px;
+  height: 208px;
+  margin-right: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 24px;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(rgba(11, 30, 42, 0.92), rgba(5, 18, 28, 0.92)) padding-box,
+    linear-gradient(125deg, rgba(0, 132, 254, 0.5), rgba(44, 235, 67, 0.25))
+      border-box;
+}
+.tile:last-child {
+  margin-right: 0;
+}
+.tile:focus {
+  background:
+    linear-gradient(#14344a, #102833) padding-box,
+    linear-gradient(125deg, #0084fe, #2ceb43) border-box;
+  border-color: transparent;
+  box-shadow: 0 0 0 3px #38c3bb;
+}
+.tile .tile-icon {
+  height: 85px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px;
+  font-size: 38px;
+  background: #0084fe;
+  color: white;
+  margin-bottom: 12px;
+}
+.tile[data-id="youtube.leanback.v4"] .tile-icon {
+  background: #e21830;
+}
+.tile[data-id="com.webos.app.livetv"] .tile-icon {
+  background: #14844e;
+}
+.tile[data-id="com.webos.app.inputpicker"] .tile-icon {
+  background: #166cc3;
+}
+.tile img {
+  width: 62px;
+  height: 62px;
+  filter: brightness(0) invert(1);
+}
+.tile strong {
+  font-size: 26px;
+  display: block;
+}
+.tile small {
+  display: block;
+  font-size: 18px;
+  color: #aabdc9;
+  margin-top: 7px;
+}
+.mono .tile-icon {
+  background: #344956 !important;
+}
+.page:not(#home) {
+  padding: 22px 24px;
+}
+.page:not(#home) h1 {
+  font-size: 48px;
+  margin: 15px 0;
+}
+.section-label > button {
+  font-size: 23px;
+}
+.intro {
+  font-size: 25px;
+  margin: 10px 0 25px;
+}
+.settings-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+.settings-grid > button {
+  width: 553px;
+  height: 149px;
+  margin: 0 35px 24px 0;
+  text-align: left;
+  position: relative;
+  padding: 25px 20px 25px 117px;
+}
+.settings-grid > button:nth-child(3n) {
+  margin-right: 0;
+}
+.settings-grid strong {
+  font-size: 25px;
+  display: block;
+}
+.settings-grid small {
+  font-size: 20px;
+  color: #afc4cf;
+  display: block;
+  margin-top: 12px;
+  line-height: 1.3;
+}
+.setting-icon {
+  position: absolute;
+  left: 25px;
+  top: 38px;
+  font-size: 31px;
+  width: 67px;
+  height: 67px;
+  border-radius: 18px;
+  background: #153849;
+  color: #5bddae;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.notice {
+  padding: 30px 35px;
+  background: rgba(6, 22, 32, 0.94);
+  border: 2px solid #15414c;
+  border-radius: 24px;
+  font-size: 25px;
+  line-height: 1.6;
+  max-width: 1500px;
+  margin-top: 30px;
+}
+.notice h2 {
+  margin: 0 0 10px;
+}
+#order-editor {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  top: 180px;
+  background: #061722;
+  z-index: 2;
+  max-width: none;
+  padding: 45px;
+}
+#order-items {
+  display: flex;
+}
+#order-items button {
+  font-size: 23px;
+  min-width: 260px;
+  margin-right: 25px;
+}
+.photo-credit {
+  font-size: 16px;
+  line-height: 1.4;
+  margin-top: 8px;
+  max-width: 1680px;
+  color: #a6bac7;
+}
+.about-panel {
+  margin-top: 50px;
+  display: flex;
+  padding: 45px;
+  background: rgba(6, 22, 32, 0.92);
+  border: 2px solid #15414c;
+  border-radius: 24px;
+}
+.about-panel > img {
+  width: 260px;
+  height: 215px;
+  object-fit: contain;
+  margin-right: 55px;
+}
+.about-panel h2 {
+  font-size: 42px;
+  margin-top: 0;
+}
+.about-panel p {
+  font-size: 26px;
+}
+.about-panel .muted {
+  font-size: 22px;
+  color: #9ab1be;
+  max-width: 1100px;
+}
+footer {
+  position: absolute;
+  bottom: 22px;
+  left: 74px;
+  right: 74px;
+  display: flex;
+  align-items: center;
+  color: #b8cbd5;
+  font-size: 20px;
+}
+footer > span {
+  margin-right: auto;
+}
+footer small {
+  color: #879da9;
+}
+footer button {
+  background: transparent;
+  font-size: 20px;
+  margin-left: 10px;
+  padding: 17px 19px;
+}
+#toast {
+  position: absolute;
+  bottom: 120px;
+  left: 260px;
+  right: 260px;
+  padding: 25px 35px;
+  border: 2px solid #2586b0;
+  border-radius: 18px;
+  background: #0d2330;
+  font-size: 25px;
+  text-align: center;
+  line-height: 1.4;
+  z-index: 5;
+}
+#splash {
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #030b12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.25s;
+  pointer-events: none;
+}
+#splash img {
+  width: 280px;
+  height: 220px;
+  object-fit: contain;
+}
+#splash.fade {
+  opacity: 0;
+}
+.no-effects button {
+  transition: none;
+}
+.no-effects button:focus {
+  box-shadow: none;
+}
+
+/* Images remain inside the card border; icons do not depend on TV font glyphs. */
+.setting-icon img {
+  width: 40px;
+  height: 40px;
+}
+.feature.cameras {
+  background:
+    linear-gradient(#030b12, #030b12) padding-box,
+    linear-gradient(120deg, #124c7f, #246839) border-box;
+  border-color: transparent;
+}
+.camera-art {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+.feature.cameras > span {
+  z-index: 1;
+}
+.feature.cameras:focus {
+  border-color: #25c3ce;
+}
+.camera-art {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%);
+  mask-image: linear-gradient(90deg, transparent, #000 25%);
+}
+
+/* Separate transparent-centre borders prevent the gradient from filling the surface.
+   rgba backgrounds work on the Chromium 53 engine without backdrop-filter. */
+header,
+.tile,
+.tile:focus,
+.feature.game,
+.feature.cameras {
+  background: rgba(7, 22, 33, 0.55);
+  border-color: transparent;
+}
+header,
+.tile {
+  position: relative;
+}
+header::before,
+.tile::before,
+.feature::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: -2px;
+  bottom: -2px;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.6;
+  border-radius: inherit;
+}
+header::before {
+  background-image: url(assets/border-header.svg);
+}
+.tile::before {
+  background-image: url(assets/border-tile.svg);
+}
+.feature::before {
+  background-image: url(assets/border-feature.svg);
+  z-index: 2;
+}
+.tile:focus,
+.feature:focus {
+  background-color: rgba(15, 46, 62, 0.64);
+  box-shadow: 0 0 0 2px #38c3bb;
+}
+.tile:focus::before,
+.feature:focus::before {
+  opacity: 1;
+}
+.settings-grid > button {
+  background: rgba(7, 22, 33, 0.6);
+}
+.settings-grid > button:focus {
+  background: rgba(15, 46, 62, 0.7);
+}

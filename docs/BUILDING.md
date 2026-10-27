@@ -42,7 +42,7 @@ cd OwnTV
 Para compilar uma versão publicada, use sua tag:
 
 ```sh
-git switch --detach v0.2.3
+git switch --detach v0.2.4
 ```
 
 Após a limpeza do histórico de logos, substitua clones antigos por um clone novo. Não faça merge de branches anteriores, pois isso pode republicar os arquivos removidos. Preserve mudanças próprias fora da árvore e reaplique somente as alterações de código necessárias.
@@ -125,7 +125,7 @@ Essa opção exige a **chave debug local já existente** e usa `-PlocalSign`. Se
 O script rejeita a combinação de `--local-sign` com chave externa. Confira o digest do certificado antes de atualizar:
 
 ```sh
-"$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs releases/0.2.3/OwnTV-0.2.3.apk
+"$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs releases/0.2.4/OwnTV-0.2.4.apk
 ```
 
 Não desinstale nem limpe dados para contornar `INSTALL_FAILED_UPDATE_INCOMPATIBLE`: isso apaga configurações e pode inviabilizar dados protegidos pelo Android Keystore. Recupere a chave original.
@@ -136,7 +136,7 @@ O [guia de instalação](INSTALLATION.pt-BR.md) explica modo desenvolvedor, depu
 
 ```sh
 adb connect TV_IP:PORTA_ADB
-adb install -r releases/0.2.3/OwnTV-0.2.3.apk
+adb install -r releases/0.2.4/OwnTV-0.2.4.apk
 adb shell am start -n io.elizandropacheco.tv/com.conreo.couchytv.MainActivity
 ```
 
@@ -153,14 +153,14 @@ Valide D-pad, Home físico, logo/abertura, favoritos, recomendações e páginas
 Com código/metadados já commitados e GitHub CLI autenticado:
 
 ```sh
-git tag -a v0.2.3 -m 'OwnTV 0.2.3'
+git tag -a v0.2.4 -m 'OwnTV 0.2.4'
 git push origin main
-git push origin v0.2.3
-gh release create v0.2.3 \
-  releases/0.2.3/OwnTV-0.2.3.apk \
-  releases/0.2.3/SHA256SUMS.txt \
-  releases/0.2.3/build-info.json \
-  --verify-tag --title 'OwnTV 0.2.3' --notes-file releases/0.2.3/RELEASE_NOTES.md
+git push origin v0.2.4
+gh release create v0.2.4 \
+  releases/0.2.4/OwnTV-0.2.4.apk \
+  releases/0.2.4/SHA256SUMS.txt \
+  releases/0.2.4/build-info.json \
+  --verify-tag --title 'OwnTV 0.2.4' --notes-file releases/0.2.4/RELEASE_NOTES.md
 ```
 
 Prepare `RELEASE_NOTES.md` com mudanças e validações reais antes do comando. Não republique uma tag com outro binário: gere nova versão. ZIPs/tarballs de código oferecidos automaticamente pelo GitHub não substituem a árvore aberta do repositório e não são o formato de entrega do projeto.

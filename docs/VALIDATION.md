@@ -29,3 +29,9 @@ A entrega 0.2.3 reorganiza documentação e scripts, padroniza a formatação do
 A integração IoT/Alexa foi estudada e documentada, mas não foi implementada nem testada em dispositivos.
 
 Na revisão de segurança da 0.2.3, Kotlin/R8/Lint foram atualizados e as dependências de build corrigidas. A política SSH e a sanitização de imagens possuem testes locais reexecutáveis. Consulte [SECURITY_REVIEW.md](SECURITY_REVIEW.md) e o manifesto de segurança da release para os resultados finais.
+
+## Android 0.2.4 e piloto LG 0.1.1 — 27/10/2026
+
+Android 0.2.4 acrescenta Entradas ao rodapé, reutilizando o seletor de `TvInputManager`. Compilação release, lint, manifesto e assinatura são registrados em `releases/0.2.4/build-info.json`. Esta revisão Android não foi instalada na TCL durante a rodada no escritório; a validação física anterior de Home se refere à versão anterior.
+
+Para LG, consulte o [registro das seis unidades](../releases/webos/0.1.1/README.md). Cada revisão do piloto deve ser conferida em todas as TVs participantes e terminar com a Home aberta para comparação visual.

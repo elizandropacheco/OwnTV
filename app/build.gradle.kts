@@ -14,8 +14,8 @@ android {
         applicationId = "io.elizandropacheco.tv"
         minSdk = 26
         targetSdk = 34
-        versionCode = 104
-        versionName = "0.2.3"
+        versionCode = 105
+        versionName = "0.2.4"
     }
 
     // Release signing key, supplied by CI via environment variables (from GitHub

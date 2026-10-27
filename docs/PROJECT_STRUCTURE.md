@@ -23,6 +23,7 @@ OwnTV/
 │       │   └── ui/                  # Compose e conteúdo compartilhado
 │       ├── res/                     # textos, temas, layouts e imagens
 │       └── assets/                  # catálogos, créditos e recursos
+├── webos/                           # piloto LG separado, interface e testes
 ├── scripts/
 │   ├── build-release.sh             # entrada Bash da entrega
 │   ├── package-release.py           # build, lint e empacotamento
@@ -66,3 +67,7 @@ Fotografias grandes e artes opcionais locais ficam fora do Git, com catálogos/c
 ## Build e distribuição
 
 `app/build/` contém intermediários do Gradle. A entrega verificada fica em `releases/<versão>/`, com APK anexado à GitHub Release e código/metadados navegáveis. Veja [Build](BUILDING.md), [Instalação](INSTALLATION.pt-BR.md) e [Validação](VALIDATION.md). O modelo em `docs/ci/` só será ativo se configurado em `.github/workflows/`.
+
+## Piloto LG webOS
+
+`webos/app/` contém a implementação inicial para LG, independente do módulo Android. `scripts/prepare-webos-assets.py` prepara fotos Full HD e `scripts/build-webos.sh` gera o IPK em `releases/webos/<versão>/`. Veja [limites e instalação](../webos/README.md). O módulo Android e sua versão não mudam com uma entrega experimental webOS.

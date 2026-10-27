@@ -1451,6 +1451,7 @@ fun OwnTVApp(rescanTick: Int, homeRequestTick: Int = 0) {
                         horizontalArrangement = Arrangement.spacedBy(gap.coerceAtMost(16.dp)),
                     ) {
                         Label("OwnTV", 10, Silver.copy(.7f), modifier = Modifier.weight(1f))
+                        FooterAction("Entradas") { Actions.launchApp(ctx, "ep:inputs") }
                         FooterAction("Personalizar apps") { settings = true }
                         FooterAction("Cards e jogos") { Actions.launchApp(ctx, "ep:customize") }
                         FooterAction("Configurações") { Actions.launchApp(ctx, "ep:settings") }

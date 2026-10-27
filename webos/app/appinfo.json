@@ -1,0 +1,15 @@
+{
+  "id": "io.elizandropacheco.owntv.webos",
+  "title": "OwnTV",
+  "version": "0.1.1",
+  "vendor": "Elizandro Pacheco",
+  "type": "web",
+  "main": "index.html",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "resolution": "1920x1080",
+  "bgColor": "#030B12",
+  "iconColor": "#030B12",
+  "disableBackHistoryAPI": true,
+  "handlesRelaunch": true
+}

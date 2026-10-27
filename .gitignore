@@ -67,3 +67,9 @@ ssh-hostkey.*
 .tools/
 __pycache__/
 *.py[cod]
+
+# webOS release binaries are distributed separately.
+/releases/**/*.ipk
+
+# Full HD photographs are generated from the credited Android catalog.
+/webos/app/assets/wallpapers/*.jpg

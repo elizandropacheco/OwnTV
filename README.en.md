@@ -18,6 +18,7 @@ OwnTV combines an open layout with geometric EP branding, translucent surfaces, 
 - Editable favorites, categories, order, visibility, cards, labels, actions, artwork, alignment and image intensity.
 - A large, remote-friendly app dock and four complete recommendation cards per page.
 - Content from Android TV's shared Watch Next and preview providers, where applications support them.
+- A persistent Inputs button on the home screen in Android and webOS.
 - Configurable PS5 HDMI entry, picture settings, Game Master shortcuts and Fortnite setup guidance.
 - A scrolling RTSP camera gallery with up to four active previews, full-resolution main-stream playback and focus restoration.
 - Fifteen original photographs above 4K, a catalog of 100, offline rotation and configurable daily downloads.
@@ -30,9 +31,9 @@ Advertising inside streaming services remains controlled by those apps. YouTube 
 
 ## Build and install
 
-Tested on TCL Android TV 14. LG/webOS needs a separate implementation and is planned rather than supported by this APK.
+Tested on TCL Android TV 14. LG/webOS has a separate experimental implementation; this APK remains Android-only.
 
-See the [LG Developer account, country selection, Developer Mode, SSH and hardware guide](docs/LG-WEBOS.pt-BR.md) (Portuguese). Developer SSH was verified on six LG 43LM631C0SB units on 2026-10-27 (firmware 05.40.97, SDK 4.10.0). Root, persistent SSH and Home replacement remain unverified; no OwnTV webOS package is released.
+See the [LG Developer account, country selection, Developer Mode, SSH and hardware guide](docs/LG-WEBOS.pt-BR.md) (Portuguese). Developer SSH was verified on six LG 43LM631C0SB units on 2026-10-27 (firmware 05.40.97, SDK 4.10.0). A [webOS 0.1.1 pilot](webos/README.md) provides an Android-inspired home, wallpapers, preferences and shortcuts, installed and checked on all six TVs. It does not have Android feature parity. Root, persistent SSH and Home replacement remain unverified. Browser and URL features are out of scope.
 
 Use JDK 21, Android SDK 34 and Build Tools 35.0.0:
 
