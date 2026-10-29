@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-label="OwnTV: Launcher aberto para Android TV, com piloto LG webOS">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F232F"/>
+      <stop offset="1" stop-color="#2A2F3D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#04B4EF"/>
+      <stop offset="1" stop-color="#A0CC3B"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#04B4EF" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#04B4EF"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#FFFFFF" stroke-opacity="0.035"/>
+    </pattern>
+    <radialGradient id="glow" cx="0.85" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#04B4EF" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#04B4EF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="320" rx="16" fill="url(#bg)"/>
+  <rect width="1280" height="320" rx="16" fill="url(#grid)"/>
+  <rect width="1280" height="320" rx="16" fill="url(#glow)"/>
+  <g>
+    <line x1="1150" y1="227" x2="1200" y2="238" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1150" y1="227" x2="1115" y2="177" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1076" y1="93" x2="1045" y2="69" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1076" y1="93" x2="1102" y2="145" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="948" y1="35" x2="1045" y2="69" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="948" y1="35" x2="870" y2="119" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="853" y1="269" x2="874" y2="282" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="853" y1="269" x2="876" y2="169" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1102" y1="145" x2="1115" y2="177" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1102" y1="145" x2="1076" y2="93" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1019" y1="285" x2="1016" y2="226" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1019" y1="285" x2="1055" y2="228" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1157" y1="163" x2="1115" y2="177" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1157" y1="163" x2="1102" y2="145" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="876" y1="169" x2="870" y2="119" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="876" y1="169" x2="853" y2="269" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1055" y1="228" x2="1016" y2="226" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1055" y1="228" x2="1019" y2="285" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1115" y1="177" x2="1102" y2="145" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1115" y1="177" x2="1157" y2="163" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1016" y1="226" x2="1055" y2="228" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1016" y1="226" x2="1019" y2="285" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1200" y1="238" x2="1212" y2="246" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1200" y1="238" x2="1150" y2="227" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1045" y1="69" x2="1076" y2="93" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1045" y1="69" x2="1102" y2="145" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="870" y1="119" x2="876" y2="169" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="870" y1="119" x2="948" y2="35" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="874" y1="282" x2="853" y2="269" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="874" y1="282" x2="876" y2="169" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1212" y1="246" x2="1200" y2="238" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <line x1="1212" y1="246" x2="1150" y2="227" stroke="url(#edge)" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="1150" cy="227" r="6" fill="#A0CC3B"/>
+    <circle cx="1150" cy="227" r="13" fill="none" stroke="#A0CC3B" stroke-opacity="0.35"/>
+    <circle cx="1076" cy="93" r="3.5" fill="#04B4EF"/>
+    <circle cx="948" cy="35" r="3.5" fill="#04B4EF"/>
+    <circle cx="853" cy="269" r="3.5" fill="#A0CC3B"/>
+    <circle cx="1102" cy="145" r="6" fill="#04B4EF"/>
+    <circle cx="1102" cy="145" r="13" fill="none" stroke="#04B4EF" stroke-opacity="0.35"/>
+    <circle cx="1019" cy="285" r="3.5" fill="#04B4EF"/>
+    <circle cx="1157" cy="163" r="3.5" fill="#A0CC3B"/>
+    <circle cx="876" cy="169" r="3.5" fill="#04B4EF"/>
+    <circle cx="1055" cy="228" r="6" fill="#04B4EF"/>
+    <circle cx="1055" cy="228" r="13" fill="none" stroke="#04B4EF" stroke-opacity="0.35"/>
+    <circle cx="1115" cy="177" r="3.5" fill="#A0CC3B"/>
+    <circle cx="1016" cy="226" r="3.5" fill="#04B4EF"/>
+    <circle cx="1200" cy="238" r="3.5" fill="#04B4EF"/>
+    <circle cx="1045" cy="69" r="6" fill="#A0CC3B"/>
+    <circle cx="1045" cy="69" r="13" fill="none" stroke="#A0CC3B" stroke-opacity="0.35"/>
+    <circle cx="870" cy="119" r="3.5" fill="#04B4EF"/>
+    <circle cx="874" cy="282" r="3.5" fill="#04B4EF"/>
+    <circle cx="1212" cy="246" r="3.5" fill="#A0CC3B"/>
+  </g>
+  <rect x="72" y="82" width="56" height="4" rx="2" fill="url(#accent)"/>
+  <text x="72" y="150" fill="#FFFFFF" font-family="Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-1">OwnTV</text>
+  <text x="72" y="200" fill="#C9D1D9" font-family="Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="24">Launcher aberto para Android TV, com piloto LG webOS</text>
+  <text x="72" y="256" fill="#04B4EF" font-family="Inter, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="3">ELIZANDRO PACHECO</text>
+</svg>
